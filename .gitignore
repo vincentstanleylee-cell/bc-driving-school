@@ -1,5 +1,6 @@
 # Allow-list style: the harness holds private notes and local state, so it is never published.
 the harness/
+.wrangler/
 *.env
 .env*
 node_modules/

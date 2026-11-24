@@ -49,6 +49,17 @@
     if (!host) return;
     var page = currentPage();
 
+    if (!document.getElementById('bcdm-details-style')) {
+      var st = document.createElement('style');
+      st.id = 'bcdm-details-style';
+      st.textContent = 'details summary::-webkit-details-marker { display: none; } details summary { list-style: none; }';
+      document.head.appendChild(st);
+    }
+
+    var langDropdown = (window.BCDM_I18N && window.BCDM_I18N.createDropdownMarkup)
+      ? window.BCDM_I18N.createDropdownMarkup()
+      : '';
+
     var links = NAV.map(function (n) {
       var active = n.href === page;
       var cls = active
@@ -75,10 +86,22 @@
             '<p class="text-xs text-slate-500 truncate">ICBC 自動波路試通關全指南</p></div>' +
           '</a>' +
           '<nav class="hidden lg:flex items-center gap-1 font-medium text-sm">' + links.join('') + '</nav>' +
-          '<details class="lg:hidden relative">' +
-            '<summary class="list-none cursor-pointer bg-slate-100 hover:bg-slate-200 p-2 rounded-lg" aria-label="選單"><i data-lucide="menu" class="w-5 h-5"></i></summary>' +
-            '<div class="absolute right-0 mt-2 w-60 bg-white border border-slate-200 rounded-xl shadow-lg p-2 flex flex-col gap-1 text-sm">' + links.join('') + '</div>' +
-          '</details>' +
+          '<div class="flex items-center gap-2">' +
+            langDropdown +
+            '<a href="./mock-test.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg text-sm font-semibold shadow transition hidden sm:flex items-center gap-2 shrink-0">' +
+              '<i data-lucide="clipboard-check" class="w-4 h-4"></i>' +
+              '<span>考官扣分清單</span>' +
+            '</a>' +
+            '<details class="lg:hidden relative">' +
+              '<summary class="list-none cursor-pointer bg-slate-100 hover:bg-slate-200 p-2 rounded-lg" aria-label="選單"><i data-lucide="menu" class="w-5 h-5"></i></summary>' +
+              '<div class="absolute right-0 mt-2 w-64 bg-white border border-slate-200 rounded-xl shadow-xl p-2 flex flex-col gap-1 text-sm z-50">' +
+                '<div class="pb-2 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">' +
+                  '<span class="text-xs font-semibold text-slate-500">切換語言 / Language</span>' +
+                '</div>' +
+                links.join('') +
+              '</div>' +
+            '</details>' +
+          '</div>' +
         '</div>' +
       '</header>';
   }
@@ -134,7 +157,8 @@
         if (row) row.classList.toggle('bg-emerald-50', box.checked);
       });
       if (bar) bar.style.width = Math.round((n / total) * 100) + '%';
-      if (count) count.textContent = n + ' / ' + total + ' 已完成';
+      var suffix = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t('已完成') : '已完成';
+      if (count) count.textContent = n + ' / ' + total + ' ' + suffix;
       if (announce && n === total) celebrate();
     }
 
@@ -166,7 +190,8 @@
       function render(announce) {
         var n = 0;
         boxes.forEach(function (box) { if (box.checked) n++; });
-        if (count) count.textContent = n + ' / ' + boxes.length;
+        var prefix = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t('完成進度') : '完成進度';
+        if (count) count.textContent = prefix + ' ' + n + ' / ' + boxes.length;
         if (bar) bar.style.width = Math.round((n / boxes.length) * 100) + '%';
         if (announce && n === boxes.length) celebrate();
       }
@@ -376,7 +401,10 @@
       ctx.setLineDash([8, 6]);
       ctx.beginPath(); ctx.moveTo(0, 228); ctx.lineTo(W, 228); ctx.stroke();
       ctx.setLineDash([]);
-      if (caption) caption.textContent = s.text;
+      if (caption) {
+        var txt = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t(s.text) : s.text;
+        caption.textContent = txt;
+      }
       buttons.forEach(function (b) {
         var on = Number(b.getAttribute('data-park-step')) === n;
         b.classList.toggle('bg-blue-600', on);
@@ -483,12 +511,20 @@
         points += pts * (Number(d.value) || 0);
       });
       var passed = failCount === 0 && points < PRACTICE_PASS_LIMIT;
+      var t = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t : function (x) { return x; };
       if (result) {
-        result.textContent = failCount > 0 ? '不及格（即時 Fail）' : (passed ? '練習通過' : '練習不及格（扣分過多）');
+        result.textContent = failCount > 0 ? t('不及格（即時 Fail）') : (passed ? t('練習通過') : t('練習不及格（扣分過多）'));
         result.className = 'text-2xl font-black ' + (passed ? 'text-emerald-600' : 'text-rose-600');
       }
       if (detail) {
-        detail.textContent = '即死位 ' + failCount + ' 項　｜　扭分合計 ' + points + ' 分（練習參考上限 ' + PRACTICE_PASS_LIMIT + ' 分，非 ICBC 官方數字）';
+        var lang = (window.BCDM_I18N && window.BCDM_I18N.getLang) ? window.BCDM_I18N.getLang() : 'yue';
+        if (lang === 'en') {
+          detail.textContent = 'Auto-Fails: ' + failCount + ' | Demerits Total: ' + points + ' pts (Pass limit: < ' + PRACTICE_PASS_LIMIT + ' pts, practice reference)';
+        } else if (lang === 'zh') {
+          detail.textContent = '致命扣分位 ' + failCount + ' 项 ｜ 扣分合计 ' + points + ' 分（练习参考上限 ' + PRACTICE_PASS_LIMIT + ' 分，非 ICBC 官方数字）';
+        } else {
+          detail.textContent = '即死位 ' + failCount + ' 項　｜　扣分合計 ' + points + ' 分（練習參考上限 ' + PRACTICE_PASS_LIMIT + ' 分，非 ICBC 官方數字）';
+        }
       }
       if (passed && failCount === 0 && points === 0) celebrate();
     }
@@ -511,6 +547,9 @@
   document.addEventListener('DOMContentLoaded', function () {
     renderHeader();
     renderFooter();
+    if (window.BCDM_I18N && window.BCDM_I18N.initSwitcher) {
+      window.BCDM_I18N.initSwitcher();
+    }
     initHubSearch();
     initRoadmap();
     initChecklists();
