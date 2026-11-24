@@ -10,6 +10,7 @@ window.BCDM_MESSAGES = {
     subtitle: { en: "ICBC Automatic Road Test Guide", zh: "ICBC 自动挡路考指南", yue: "ICBC 自動波路試指南" },
     demeritSheet: { en: "Demerit Sheet", zh: "扣分表", yue: "考官扣分清單" },
     navHome: { en: "Home", zh: "首页", yue: "首頁總覽" },
+    navSigns: { en: "Road Signs", zh: "路牌", yue: "路牌" },
     navCockpit: { en: "Pre-Trip Check", zh: "出发前检查", yue: "座艙檢查" },
     navDriving: { en: "Driving Skills", zh: "驾驶技巧", yue: "自動波技巧" },
     navIntersections: { en: "Intersections", zh: "路口规则", yue: "路口路權" },
@@ -28,6 +29,7 @@ window.BCDM_MESSAGES = {
     module5: { en: "Module 05", zh: "模块 05" },
     module6: { en: "Module 06", zh: "模块 06" },
     module7: { en: "Module 07", zh: "模块 07" },
+    module8: { en: "Module 08", zh: "模块 08" },
   },
   home: {
     roadmapCount: { en: "{done} / {total} complete", zh: "已完成 {done} / {total} 项", yue: "已完成 {done} / {total} 項" },
@@ -39,7 +41,7 @@ window.BCDM_MESSAGES = {
     firstLesson: { en: "Lesson 1 — Pre-trip check", zh: "第 1 课：出发前检查" },
     mockTestLink: { en: "Mock test", zh: "模拟路考" },
     heroPhoto: { en: "A driver holds the steering wheel with the dashboard and a street at dusk in view.", zh: "驾驶员双手握住方向盘，前方可见仪表盘和黄昏时的街道。" },
-    roadmapHeading: { en: "Study roadmap (8 milestones)", zh: "学习路线图（8 个里程碑）" },
+    roadmapHeading: { en: "Study roadmap (9 milestones)", zh: "学习路线图（9 个里程碑）" },
     roadmapIntro: { en: "Check off each topic as you learn it. Your browser saves your progress.", zh: "学完一项就打勾，浏览器会保存你的进度。" },
     milestonePreTrip: { en: "M1 Pre-trip inspection and setup", zh: "M1 出发前车辆检查与调整" },
     milestonePreTripDetail: { en: "A 360° walk-around, seat and mirror adjustments, and the P-R-N-D-2-1 gear positions.", zh: "绕车检查一周，调整座椅和后视镜，了解 P-R-N-D-2-1 挡位。" },
@@ -57,7 +59,12 @@ window.BCDM_MESSAGES = {
     milestoneHazardsDetail: { en: "Tell real hazards from potential hazards and complete the interactive scene.", zh: "区分实际危险与潜在危险，并完成互动场景练习。" },
     milestoneScoring: { en: "M8 Automatic fails and mock scoring", zh: "M8 直接不合格项与模拟评分" },
     milestoneScoringDetail: { en: "Review the 10 automatic-fail items and score one complete practice test.", zh: "自查 10 项可能直接导致不合格的行为，再完成一次模拟评分。" },
-    moduleHeading: { en: "7 study modules", zh: "7 个学习模块" },
+    moduleHeading: { en: "8 study modules", zh: "8 个学习模块" },
+    milestoneSigns: { en: "M9 Road signs, signals and markings", zh: "M9 路牌、信号与道路标线" },
+    milestoneSignsDetail: { en: "Learn the signs, then complete an interactive quiz round.", zh: "认识道路标志，再完成一轮互动测验。" },
+    cardSigns: { en: "Road Signs Lab", zh: "路牌互动课堂" },
+    cardSignsDetail: { en: "141 sign, signal and marking examples. Flip flashcards, try a random quiz and practise the ones you missed.", zh: "141 个路牌、信号和道路标线图例。翻卡学习、随机测验、错题重练。" },
+    openSigns: { en: "Learn signs and take the challenge", zh: "学路牌，挑战自己" },
     moduleIntro: { en: "Work through the topics in road-test order with interactive practice along the way.", zh: "按 ICBC 路考顺序学习，并通过互动模拟练习。" },
     searchLabel: { en: "Search modules", zh: "搜索模块" },
     searchPlaceholder: { en: "Search parking, blind spots, stop signs, speed limits…", zh: "搜索停车、盲区、停车标志、限速……" },
@@ -479,4 +486,448 @@ window.BCDM_MESSAGES = {
     reminderHeading: { en: "Before the road test", zh: "路考前提醒" },
     reminder: { en: "Use this page for practice. Check ICBC’s current resources or ask a licensed driving instructor about the official rules, scoring and automatic fails.", zh: "本页供自学练习。关于正式路考规则、扣分和直接不合格项，请查看 ICBC 最新资料，或向持牌驾驶教练核实。" },
   },
+};
+
+/* Road signs lesson, flashcards and quiz. */
+window.BCDM_MESSAGES.signs = {
+  "pageTitle": {
+    "en": "Road Signs Lab · BC Driving Master",
+    "yue": "路牌遊樂教室 · BC Driving Master",
+    "zh": "道路标志互动课堂 · BC Driving Master"
+  },
+  "eyebrow": {
+    "en": "B.C. signs, signals and road markings",
+    "yue": "卑詩路牌、燈號同路面標記",
+    "zh": "卑诗省路牌、信号与道路标线"
+  },
+  "heading": {
+    "en": "Road Signs Lab",
+    "yue": "路牌遊樂教室",
+    "zh": "路牌互动课堂"
+  },
+  "intro": {
+    "en": "141 illustrated examples. Discover the meaning, flip a card, then put your road smarts to the test.",
+    "yue": "141 個圖例，逐個認、逐個玩。先揭卡學意思，再挑戰自己。",
+    "zh": "141 个图例，边看边学。先翻卡了解含义，再挑战测验。"
+  },
+  "heroQuiz": {
+    "en": "Take the 12-question challenge",
+    "yue": "挑戰 12 題",
+    "zh": "挑战 12 题"
+  },
+  "activityTitle": {
+    "en": "Learn and test your road signs",
+    "yue": "路牌學習同測驗",
+    "zh": "道路标志学习与测验"
+  },
+  "modeLabel": {
+    "en": "Learning mode",
+    "yue": "學習模式",
+    "zh": "学习模式"
+  },
+  "explore": {
+    "en": "Explore",
+    "yue": "路牌圖鑑",
+    "zh": "路牌图鉴"
+  },
+  "study": {
+    "en": "Flashcards",
+    "yue": "揭卡練習",
+    "zh": "翻卡练习"
+  },
+  "quiz": {
+    "en": "Quiz",
+    "yue": "闖關測驗",
+    "zh": "闯关测验"
+  },
+  "categoryLabel": {
+    "en": "Choose a category",
+    "yue": "揀類別",
+    "zh": "选择类别"
+  },
+  "searchLabel": {
+    "en": "Find a sign",
+    "yue": "搵路牌",
+    "zh": "查找路牌"
+  },
+  "searchPlaceholder": {
+    "en": "Stop, bicycles, railway…",
+    "yue": "停牌、單車、鐵路……",
+    "zh": "停车、自行车、铁路……"
+  },
+  "exploreHelp": {
+    "en": "Select a sign to learn what to do. Mark the ones you know and pick up where you left off.",
+    "yue": "撳路牌睇意思。識咗就打勾，下次繼續。",
+    "zh": "点击路牌了解应对方法。学会后打勾，下次接着学。"
+  },
+  "empty": {
+    "en": "No matches. Try another word or category.",
+    "yue": "搵唔到，試吓另一個字或者類別。",
+    "zh": "没有匹配项，请换个词或类别。"
+  },
+  "studyHeading": {
+    "en": "What does this one mean?",
+    "yue": "估吓呢個係咩意思？",
+    "zh": "猜猜这个是什么意思？"
+  },
+  "shuffle": {
+    "en": "Shuffle",
+    "yue": "洗牌",
+    "zh": "洗牌"
+  },
+  "studyHelp": {
+    "en": "Say the answer before you reveal it. Add familiar signs to your learned collection.",
+    "yue": "先講出答案，再揭卡。識咗可以加入已學識清單。",
+    "zh": "先说出答案再翻卡。掌握后可加入已学会清单。"
+  },
+  "quizEyebrow": {
+    "en": "Your road signs challenge",
+    "yue": "今日嘅路牌挑戰",
+    "zh": "今天的路牌挑战"
+  },
+  "quizHeading": {
+    "en": "How many do you know?",
+    "yue": "你認得幾多個？",
+    "zh": "你认识多少个？"
+  },
+  "quizIntro": {
+    "en": "Match pictures to meanings and meanings to pictures. Get an explanation after each answer, then retry the ones you missed.",
+    "yue": "有時睇圖揀意思，有時睇意思揀圖。每題即刻有解說，答錯嘅可以再練。",
+    "zh": "有时看图选含义，有时看含义选图。每题都有即时讲解，答错的可以再练。"
+  },
+  "startQuick": {
+    "en": "12 random questions",
+    "yue": "隨機 12 題",
+    "zh": "随机 12 题"
+  },
+  "startAll": {
+    "en": "Test the whole category",
+    "yue": "挑戰整個類別",
+    "zh": "挑战整个类别"
+  },
+  "shapesHeading": {
+    "en": "Start with shape and colour",
+    "yue": "先睇形狀同顏色",
+    "zh": "先看形状与颜色"
+  },
+  "shapesIntro": {
+    "en": "A sign’s appearance gives you a clue before you read its message.",
+    "yue": "就算第一次見，都可以先靠顏色估到用途。",
+    "zh": "即使第一次看到，也能先从颜色判断用途。"
+  },
+  "shapeStop": {
+    "en": "Red octagon",
+    "yue": "紅八角形",
+    "zh": "红色八角形"
+  },
+  "shapeStopDetail": {
+    "en": "Come to a full stop.",
+    "yue": "要完全停定。",
+    "zh": "必须完全停稳。"
+  },
+  "shapeYield": {
+    "en": "Upside-down triangle",
+    "yue": "倒三角形",
+    "zh": "倒三角形"
+  },
+  "shapeYieldDetail": {
+    "en": "Prepare to give way.",
+    "yue": "準備讓路。",
+    "zh": "准备让行。"
+  },
+  "shapeWarning": {
+    "en": "Yellow diamond",
+    "yue": "黃色菱形",
+    "zh": "黄色菱形"
+  },
+  "shapeWarningDetail": {
+    "en": "Changing conditions or hazards ahead.",
+    "yue": "前面有變化或者危險。",
+    "zh": "前方路况有变化或危险。"
+  },
+  "shapeWork": {
+    "en": "Orange diamond",
+    "yue": "橙色菱形",
+    "zh": "橙色菱形"
+  },
+  "shapeWorkDetail": {
+    "en": "Road works and temporary instructions.",
+    "yue": "工程區，留意臨時指示。",
+    "zh": "施工区域，留意临时指示。"
+  },
+  "shapeRule": {
+    "en": "Black on white",
+    "yue": "白底黑字",
+    "zh": "白底黑字"
+  },
+  "shapeRuleDetail": {
+    "en": "A road rule you must follow.",
+    "yue": "要遵守嘅行車規則。",
+    "zh": "必须遵守的行车规则。"
+  },
+  "shapeGuide": {
+    "en": "Blue service sign",
+    "yue": "藍色服務牌",
+    "zh": "蓝色服务标志"
+  },
+  "shapeGuideDetail": {
+    "en": "Directions to roadside facilities.",
+    "yue": "指向路邊服務設施。",
+    "zh": "指向道路沿线服务设施。"
+  },
+  "sourcesHeading": {
+    "en": "Keep exploring the road signs",
+    "yue": "繼續查路牌",
+    "zh": "继续查阅道路标志"
+  },
+  "sourcesIntro": {
+    "en": "The collection covers all 109 road-sign examples in ICBC chapter 3, plus 15 signals and 17 pavement markings. Sign lettering and numbers keep their on-road appearance. Read the signs actually posted on your route.",
+    "yue": "圖鑑涵蓋 ICBC 第三章全部 109 個路牌圖例，另外有 15 個燈號同 17 個路面標記。路牌上嘅英文、數字同時間保留實際樣式，現場標示可能不同。",
+    "zh": "图鉴涵盖 ICBC 第三章全部 109 个道路标志图例，另有 15 个信号和 17 个路面标记。路牌文字、数字和时间保留实物样式，实际路段的标示可能不同。"
+  },
+  "sourceIcbc": {
+    "en": "ICBC Learn to Drive Smart, chapter 3",
+    "yue": "ICBC《Learn to Drive Smart》第三章",
+    "zh": "ICBC《Learn to Drive Smart》第三章"
+  },
+  "sourceCatalogue": {
+    "en": "B.C. full traffic sign catalogue",
+    "yue": "卑詩省完整道路標誌目錄",
+    "zh": "卑诗省完整道路标志目录"
+  },
+  "sourceLaw": {
+    "en": "B.C. traffic sign regulations",
+    "yue": "卑詩道路標誌規例",
+    "zh": "卑诗省道路标志法规"
+  },
+  "all": {
+    "en": "All categories",
+    "yue": "全部類別",
+    "zh": "全部类别"
+  },
+  "regulatory": {
+    "en": "Rules and restrictions",
+    "yue": "規則同限制",
+    "zh": "规则与限制"
+  },
+  "parking": {
+    "en": "Parking and stopping",
+    "yue": "泊車同停車限制",
+    "zh": "停车与临时停留"
+  },
+  "crossings": {
+    "en": "Schools and crossings",
+    "yue": "學校同過路處",
+    "zh": "学校与过街处"
+  },
+  "lanes": {
+    "en": "Lanes and turns",
+    "yue": "行車線同轉彎",
+    "zh": "车道与转弯"
+  },
+  "warnings": {
+    "en": "Warnings and obstructions",
+    "yue": "警告同障礙物",
+    "zh": "警告与障碍物"
+  },
+  "works": {
+    "en": "Construction zones",
+    "yue": "工程區",
+    "zh": "施工区域"
+  },
+  "guide": {
+    "en": "Routes and services",
+    "yue": "路線同服務",
+    "zh": "路线与服务"
+  },
+  "rail": {
+    "en": "Railway crossings",
+    "yue": "鐵路平交道",
+    "zh": "铁路道口"
+  },
+  "signals": {
+    "en": "Traffic signals",
+    "yue": "交通燈號",
+    "zh": "交通信号"
+  },
+  "markings": {
+    "en": "Road markings",
+    "yue": "路面標記",
+    "zh": "路面标线"
+  },
+  "learnedCount": {
+    "en": "{known} / {total} learned",
+    "yue": "已學識 {known} / {total} 個",
+    "zh": "已学会 {known} / {total} 个"
+  },
+  "filterCount": {
+    "en": "{count} examples",
+    "yue": "{count} 個圖例",
+    "zh": "{count} 个图例"
+  },
+  "markKnown": {
+    "en": "Mark as learned",
+    "yue": "我識呢個喇",
+    "zh": "标记为已学会"
+  },
+  "markedKnown": {
+    "en": "✓ Learned",
+    "yue": "✓ 已學識",
+    "zh": "✓ 已学会"
+  },
+  "sourcePage": {
+    "en": "ICBC · page {page}",
+    "yue": "ICBC · 第 {page} 頁",
+    "zh": "ICBC · 第 {page} 页"
+  },
+  "cardPrompt": {
+    "en": "Say what it means, then reveal.",
+    "yue": "先講出意思，再揭卡。",
+    "zh": "先说出含义，再翻卡。"
+  },
+  "reveal": {
+    "en": "Reveal the answer",
+    "yue": "揭開答案",
+    "zh": "揭晓答案"
+  },
+  "hideAnswer": {
+    "en": "Hide the answer",
+    "yue": "收埋答案",
+    "zh": "隐藏答案"
+  },
+  "previous": {
+    "en": "Previous",
+    "yue": "上一個",
+    "zh": "上一个"
+  },
+  "nextCard": {
+    "en": "Next card",
+    "yue": "下一個",
+    "zh": "下一个"
+  },
+  "flashAlt": {
+    "en": "Road sign flashcard, answer hidden",
+    "yue": "路牌練習卡，答案未揭開",
+    "zh": "路牌练习卡，答案尚未揭晓"
+  },
+  "position": {
+    "en": "Card {current} of {total}",
+    "yue": "第 {current} / {total} 張",
+    "zh": "第 {current} / {total} 张"
+  },
+  "best": {
+    "en": "Best on a {total}-question round: {score} correct",
+    "yue": "{total} 題回合最佳成績：答啱 {score} 題",
+    "zh": "{total} 题回合最佳成绩：答对 {score} 题"
+  },
+  "noBest": {
+    "en": "Your best result will be saved in this browser.",
+    "yue": "最佳成績會儲存喺呢個瀏覽器。",
+    "zh": "最佳成绩会保存在本浏览器。"
+  },
+  "questionCount": {
+    "en": "Question {current} / {total}",
+    "yue": "第 {current} / {total} 題",
+    "zh": "第 {current} / {total} 题"
+  },
+  "score": {
+    "en": "{score} correct",
+    "yue": "答啱 {score} 題",
+    "zh": "答对 {score} 题"
+  },
+  "streak": {
+    "en": "{streak} in a row",
+    "yue": "連續答啱 {streak} 題",
+    "zh": "连续答对 {streak} 题"
+  },
+  "questionMeaning": {
+    "en": "What does this sign mean?",
+    "yue": "呢個係咩意思？",
+    "zh": "这个是什么意思？"
+  },
+  "questionPicture": {
+    "en": "Which picture matches this meaning?",
+    "yue": "邊張圖符合呢個意思？",
+    "zh": "哪张图符合这个含义？"
+  },
+  "questionAlt": {
+    "en": "Question sign, choose its meaning",
+    "yue": "題目圖例，請揀意思",
+    "zh": "题目图例，请选择含义"
+  },
+  "optionAlt": {
+    "en": "Sign option {number}",
+    "yue": "路牌選項 {number}",
+    "zh": "路牌选项 {number}"
+  },
+  "correct": {
+    "en": "You got it!",
+    "yue": "答啱喇！",
+    "zh": "答对了！"
+  },
+  "incorrect": {
+    "en": "Let’s learn this one.",
+    "yue": "呢個一齊記住佢。",
+    "zh": "一起记住这一题。"
+  },
+  "correctAnswer": {
+    "en": "The answer is {answer}.",
+    "yue": "答案係「{answer}」。",
+    "zh": "答案是“{answer}”。"
+  },
+  "nextQuestion": {
+    "en": "Next question",
+    "yue": "下一題",
+    "zh": "下一题"
+  },
+  "showResults": {
+    "en": "See my result",
+    "yue": "睇成績",
+    "zh": "查看成绩"
+  },
+  "perfectTitle": {
+    "en": "A perfect road signs round!",
+    "yue": "全啱，路牌高手！",
+    "zh": "全对，路牌高手！"
+  },
+  "greatTitle": {
+    "en": "You know your way around.",
+    "yue": "你認路牌有一手喎。",
+    "zh": "你很会认路牌。"
+  },
+  "keepTitle": {
+    "en": "A little practice goes a long way.",
+    "yue": "再練幾題就更熟。",
+    "zh": "再练几题就更熟。"
+  },
+  "resultDetail": {
+    "en": "You got {score} out of {total} right. Your longest streak was {streak}.",
+    "yue": "你答啱 {total} 題入面嘅 {score} 題，最長連續答啱 {streak} 題。",
+    "zh": "你在 {total} 题中答对 {score} 题，最长连续答对 {streak} 题。"
+  },
+  "retryMissed": {
+    "en": "Retry missed questions",
+    "yue": "再挑戰錯題",
+    "zh": "再挑战错题"
+  },
+  "newRound": {
+    "en": "Start a new round",
+    "yue": "開新一輪",
+    "zh": "开始新一轮"
+  },
+  "reviewHeading": {
+    "en": "Signs to practise again",
+    "yue": "再練吓呢幾個",
+    "zh": "再练练这些"
+  },
+  "practicePerfect": {
+    "en": "Try another category or challenge the whole collection.",
+    "yue": "試吓其他類別，或者挑戰全部圖例。",
+    "zh": "试试其他类别，或挑战全部图例。"
+  },
+  "activeRound": {
+    "en": "A round is in progress. Your category selection will apply to the next round.",
+    "yue": "呢輪測驗進行中，揀嘅類別會喺下一輪用。",
+    "zh": "本轮测验进行中，新选择的类别将在下一轮使用。"
+  }
 };

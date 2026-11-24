@@ -53,10 +53,10 @@
         <section class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 md:p-8 mb-12">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-3 mb-6">
                 <div>
-                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2"><i data-lucide="map" class="w-6 h-6 text-blue-600"></i> <span data-i18n="home.roadmapHeading">通關路線圖（8 個核心里程碑）</span></h3>
+                    <h3 class="text-2xl font-bold text-slate-900 flex items-center gap-2"><i data-lucide="map" class="w-6 h-6 text-blue-600"></i> <span data-i18n="home.roadmapHeading">通關路線圖（9 個核心里程碑）</span></h3>
                     <p data-i18n="home.roadmapIntro" class="text-sm text-slate-600 mt-1">完成一個學習重點就勾選，進度會保存在你的瀏覽器中。</p>
                 </div>
-                <p id="roadmap-count" class="text-sm font-semibold text-blue-700">0 / 8 已完成</p>
+                <p id="roadmap-count" class="text-sm font-semibold text-blue-700">0 / 9 已完成</p>
             </div>
             <div class="h-2 w-full bg-slate-100 rounded-full overflow-hidden mb-6">
                 <div id="roadmap-bar" class="h-full bg-blue-600 transition-all duration-500" style="width:0%"></div>
@@ -94,6 +94,10 @@
                     <input type="checkbox" data-milestone="m8" class="mt-1 w-5 h-5 accent-blue-600">
                     <span><strong data-i18n="home.milestoneScoring" class="text-slate-900">M8 即死位清零與模擬評分</strong><span data-i18n="home.milestoneScoringDetail" class="block text-sm text-slate-600">完成 10 大即時不及格項目自檢，並做一次完整模擬評分。</span></span>
                 </label>
+                <label data-milestone-row class="flex items-start gap-3 p-4 rounded-xl border border-slate-200 hover:border-blue-300 cursor-pointer transition">
+                    <input type="checkbox" data-milestone="m9" class="mt-1 w-5 h-5 accent-blue-600">
+                    <span><strong data-i18n="home.milestoneSigns" class="text-slate-900">M9 路牌、燈號同路面標記</strong><span data-i18n="home.milestoneSignsDetail" class="block text-sm text-slate-600">認識路牌，再完成一輪互動路牌測驗。</span></span>
+                </label>
             </div>
         </section>
 
@@ -101,7 +105,7 @@
         <section class="mb-12">
             <div class="flex flex-col md:flex-row md:items-end md:justify-between gap-4 mb-8">
                 <div>
-                    <h3 data-i18n="home.moduleHeading" class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">7 大核心學習模組</h3>
+                    <h3 data-i18n="home.moduleHeading" class="text-2xl md:text-3xl font-bold text-slate-900 mb-2">8 大核心學習模組</h3>
                     <p data-i18n="home.moduleIntro" class="text-slate-600 text-sm md:text-base">按照真實 ICBC 路考順序設計，附互動模擬。</p>
                 </div>
                 <label class="relative w-full md:w-80">
@@ -112,6 +116,19 @@
             </div>
 
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <a data-searchable data-keywords="sign signs traffic road test quiz flashcard 路牌 标志 標誌 信號 信号 標線 标线 閃卡 闪卡 测验 測驗" href="./road-signs.html" class="group bg-lime-50 rounded-2xl border border-lime-300 p-6 shadow-sm hover:shadow-md hover:border-lime-500 transition flex flex-col justify-between">
+                    <div>
+                        <div class="flex gap-3 mb-4 items-center h-14">
+                            <img src="./assets/signs/stop.webp" alt="" class="h-14 w-14 object-contain" loading="lazy" width="56" height="56">
+                            <img src="./assets/signs/winding-road.webp" alt="" class="h-14 w-14 object-contain" loading="lazy" width="56" height="56">
+                            <img src="./assets/signs/yield.webp" alt="" class="h-14 w-14 object-contain" loading="lazy" width="56" height="56">
+                        </div>
+                        <span data-i18n="shared.module8" class="text-xs font-semibold text-lime-800 uppercase tracking-wider">第八課</span>
+                        <h4 data-i18n="home.cardSigns" class="text-xl font-bold text-slate-900 mt-1 mb-2">路牌遊樂教室</h4>
+                        <p data-i18n="home.cardSignsDetail" class="text-sm text-slate-600 leading-relaxed">141 個路牌、燈號同路面標記圖例。揭卡學習、隨機測驗、錯題重練。</p>
+                    </div>
+                    <div class="mt-6 pt-4 border-t border-lime-200 flex items-center justify-between text-lime-800 text-sm font-semibold"><span data-i18n="home.openSigns">學路牌，挑戰自己</span><i data-lucide="arrow-right" class="w-4 h-4"></i></div>
+                </a>
                 <a data-searchable data-keywords="cockpit 座艙 後視鏡 座位 P R N D 檔位 儀表 燈 pre-trip 出發前" href="./cockpit.html" class="group bg-white rounded-2xl border border-slate-200 p-6 shadow-sm hover:shadow-md hover:border-blue-300 transition flex flex-col justify-between">
                     <div>
                         <div class="w-12 h-12 rounded-xl bg-blue-100 text-blue-600 flex items-center justify-center mb-4 group-hover:scale-110 transition"><i data-lucide="gauge" class="w-6 h-6"></i></div>

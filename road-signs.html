@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="yue-Hant-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title data-i18n="signs.pageTitle">路牌遊樂教室 · BC Driving Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./road-signs.css">
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+    <div id="site-header"></div>
+    <main class="sign-lab flex-grow">
+        <section class="sign-hero">
+            <div class="sign-hero-copy">
+                <p class="sign-eyebrow" data-i18n="signs.eyebrow">卑詩路牌、燈號同路面標記</p>
+                <h2 data-i18n="signs.heading">路牌遊樂教室</h2>
+                <p class="sign-intro" data-i18n="signs.intro">141 個圖例，逐個認、逐個玩。先揭卡學意思，再挑戰自己。</p>
+                <a href="#sign-activity" class="sign-primary" id="hero-quiz" data-i18n="signs.heroQuiz">挑戰 12 題</a>
+            </div>
+            <div class="sign-hero-art" aria-hidden="true">
+                <img class="hero-sign hero-stop" src="./assets/signs/stop.webp" alt="">
+                <img class="hero-sign hero-winding" src="./assets/signs/winding-road.webp" alt="">
+                <img class="hero-sign hero-yield" src="./assets/signs/yield.webp" alt="">
+                <div class="hero-road"></div>
+            </div>
+        </section>
+
+        <section class="sign-workspace" aria-labelledby="activity-title">
+            <div class="sign-toolbar">
+                <h3 class="sr-only" id="activity-title" data-i18n="signs.activityTitle">路牌學習同測驗</h3>
+                <div class="sign-modes" role="group" data-i18n-aria-label="signs.modeLabel" aria-label="學習模式">
+                    <button type="button" data-mode="explore" aria-pressed="true" data-i18n="signs.explore">路牌圖鑑</button>
+                    <button type="button" data-mode="study" aria-pressed="false" data-i18n="signs.study">揭卡練習</button>
+                    <button type="button" data-mode="quiz" aria-pressed="false" data-i18n="signs.quiz">闖關測驗</button>
+                </div>
+                <div class="sign-progress" aria-live="polite">
+                    <p id="sign-learned-count"></p>
+                    <div class="sign-meter"><div id="sign-learned-bar"></div></div>
+                </div>
+            </div>
+
+            <div class="sign-filters">
+                <label class="sign-field">
+                    <span data-i18n="signs.categoryLabel">揀類別</span>
+                    <select id="sign-category"></select>
+                </label>
+                <label class="sign-field sign-search-field" id="sign-search-field">
+                    <span data-i18n="signs.searchLabel">搵路牌</span>
+                    <input id="sign-search" type="search" data-i18n-placeholder="signs.searchPlaceholder" placeholder="停牌、單車、鐵路……" autocomplete="off">
+                </label>
+                <p class="sign-filter-count" id="sign-filter-count" aria-live="polite"></p>
+            </div>
+
+            <div id="sign-activity" class="sign-activity" tabindex="-1">
+                <section id="sign-explore">
+                    <p class="sign-section-help" data-i18n="signs.exploreHelp">撳路牌睇意思。識咗就打勾，下次繼續。</p>
+                    <div class="sign-grid" id="sign-grid"></div>
+                    <p id="sign-empty" hidden data-i18n="signs.empty">搵唔到，試吓另一個字或者類別。</p>
+                </section>
+
+                <section id="sign-study" hidden>
+                    <div class="sign-session-heading">
+                        <h4 data-i18n="signs.studyHeading">估吓呢個係咩意思？</h4>
+                        <button type="button" class="sign-text-button" id="sign-shuffle" data-i18n="signs.shuffle">洗牌</button>
+                    </div>
+                    <p class="sign-section-help" data-i18n="signs.studyHelp">先講出答案，再揭卡。識咗可以加入已學識清單。</p>
+                    <div id="sign-flashcard" class="sign-flashcard"></div>
+                </section>
+
+                <section id="sign-quiz" hidden>
+                    <div id="sign-quiz-setup" class="sign-quiz-setup">
+                        <div>
+                            <p class="sign-eyebrow" data-i18n="signs.quizEyebrow">今日嘅路牌挑戰</p>
+                            <h4 data-i18n="signs.quizHeading">你認得幾多個？</h4>
+                            <p data-i18n="signs.quizIntro">有時睇圖揀意思，有時睇意思揀圖。每題即刻有解說，答錯嘅可以再練。</p>
+                            <p id="sign-best" class="sign-best"></p>
+                        </div>
+                        <div class="sign-quiz-actions">
+                            <button type="button" class="sign-primary" id="sign-start-quick" data-i18n="signs.startQuick">隨機 12 題</button>
+                            <button type="button" class="sign-secondary" id="sign-start-all" data-i18n="signs.startAll">挑戰整個類別</button>
+                        </div>
+                    </div>
+                    <div id="sign-quiz-round" hidden></div>
+                    <div id="sign-quiz-results" hidden></div>
+                </section>
+            </div>
+        </section>
+
+        <section class="sign-guide" aria-labelledby="sign-shapes-title">
+            <div>
+                <h3 id="sign-shapes-title" data-i18n="signs.shapesHeading">先睇形狀同顏色</h3>
+                <p data-i18n="signs.shapesIntro">就算第一次見，都可以先靠顏色估到用途。</p>
+            </div>
+            <div class="sign-shape-grid">
+                <article><img src="./assets/signs/stop.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeStop">紅八角形</h4><p data-i18n="signs.shapeStopDetail">要完全停定。</p></article>
+                <article><img src="./assets/signs/yield.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeYield">倒三角形</h4><p data-i18n="signs.shapeYieldDetail">準備讓路。</p></article>
+                <article><img src="./assets/signs/winding-road.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeWarning">黃色菱形</h4><p data-i18n="signs.shapeWarningDetail">前面有變化或者危險。</p></article>
+                <article><img src="./assets/signs/construction.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeWork">橙色菱形</h4><p data-i18n="signs.shapeWorkDetail">工程區，留意臨時指示。</p></article>
+                <article><img src="./assets/signs/maximum-speed.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeRule">白底黑字</h4><p data-i18n="signs.shapeRuleDetail">要遵守嘅行車規則。</p></article>
+                <article><img src="./assets/signs/fuel.webp" alt="" loading="lazy"><h4 data-i18n="signs.shapeGuide">藍色服務牌</h4><p data-i18n="signs.shapeGuideDetail">指向路邊服務設施。</p></article>
+            </div>
+        </section>
+
+        <section class="sign-sources">
+            <h3 data-i18n="signs.sourcesHeading">繼續查路牌</h3>
+            <p data-i18n="signs.sourcesIntro">圖鑑涵蓋 ICBC 第三章全部 109 個路牌圖例，另外有 15 個燈號同 17 個路面標記。路牌上嘅英文、數字同時間保留實際樣式，現場標示可能不同。</p>
+            <p><a href="https://www.icbc.com/assets/en/7CsgGUXEIxCwW8xQrqyoLu/drivers3.pdf" target="_blank" rel="noopener" data-i18n="signs.sourceIcbc">ICBC《Learn to Drive Smart》第三章</a></p>
+            <p><a href="https://www2.gov.bc.ca/gov/content/transportation/transportation-infrastructure/engineering-standards-guidelines/traffic-engineering-safety/traffic-signs-markings" target="_blank" rel="noopener" data-i18n="signs.sourceCatalogue">卑詩省完整道路標誌目錄</a></p>
+            <p><a href="https://www.bclaws.gov.bc.ca/civix/document/id/complete/statreg/26_58_06" target="_blank" rel="noopener" data-i18n="signs.sourceLaw">卑詩道路標誌規例</a></p>
+        </section>
+    </main>
+    <div id="site-footer"></div>
+    <script src="./translations.js" defer></script>
+    <script src="./road-signs-data.js" defer></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./app.js" defer></script>
+    <script src="./road-signs.js" defer></script>
+</body>
+</html>

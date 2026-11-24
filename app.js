@@ -8,6 +8,7 @@
 
   var NAV = [
     { href: 'index.html', message: 'shared.navHome' },
+    { href: 'road-signs.html', message: 'shared.navSigns' },
     { href: 'cockpit.html', message: 'shared.navCockpit' },
     { href: 'driving-basics.html', message: 'shared.navDriving' },
     { href: 'intersections.html', message: 'shared.navIntersections' },
@@ -84,14 +85,14 @@
             '<div class="min-w-0"><h1 class="font-bold text-base sm:text-lg text-slate-900 leading-tight">BC Driving Master</h1>' +
             '<p data-i18n="shared.subtitle" class="text-xs text-slate-500 truncate"></p></div>' +
           '</a>' +
-          '<nav class="hidden xl:flex items-center gap-1 font-medium text-sm">' + links.join('') + '</nav>' +
+          '<nav class="hidden 2xl:flex items-center gap-1 font-medium text-sm">' + links.join('') + '</nav>' +
           '<div class="flex items-center gap-2 shrink-0">' +
             i18n.createDropdownMarkup() +
-            '<a href="./mock-test.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg text-sm font-semibold shadow transition hidden sm:flex xl:hidden items-center gap-2 shrink-0">' +
+            '<a href="./mock-test.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg text-sm font-semibold shadow transition hidden sm:flex 2xl:hidden items-center gap-2 shrink-0">' +
               '<i data-lucide="clipboard-check" class="w-4 h-4"></i>' +
               '<span data-i18n="shared.demeritSheet"></span>' +
             '</a>' +
-            '<details class="xl:hidden relative shrink-0">' +
+            '<details class="2xl:hidden relative shrink-0">' +
               '<summary class="list-none cursor-pointer bg-slate-100 hover:bg-slate-200 p-2 rounded-lg" data-i18n-aria-label="shared.menu"><i data-lucide="menu" class="w-5 h-5"></i></summary>' +
               '<div class="absolute right-0 mt-2 w-64 bg-white border border-slate-200 rounded-xl shadow-xl p-2 flex flex-col gap-1 text-sm z-50">' +
                 links.join('') +
@@ -147,7 +148,9 @@
 
     // Older saves used the default checkbox value and showed every milestone as checked.
     if (done.includes('on')) {
-      done = Array.from(boxes, function (box) { return box.dataset.milestone; });
+      done = Array.from(boxes)
+        .map(function (box) { return box.dataset.milestone; })
+        .filter(function (id) { return id !== 'm9'; });
     }
 
     function render(announce) {

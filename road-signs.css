@@ -1,0 +1,177 @@
+.sign-lab {
+    --ink: #12273e;
+    --muted: #536477;
+    --line: #dbe2e7;
+    --blue: #1d4ed8;
+    --lime: #dcf397;
+    font-family: 'Noto Sans TC', sans-serif;
+    color: var(--ink);
+    background: #f8f8f3;
+}
+.sign-lab [hidden] { display: none !important; }
+.sign-lab button, .sign-lab input, .sign-lab select { font: inherit; }
+.sign-lab button, .sign-lab summary, .sign-lab a { -webkit-tap-highlight-color: transparent; }
+.sign-lab button { cursor: pointer; }
+.sign-lab button:disabled { cursor: default; }
+.sign-lab :focus-visible { outline: 3px solid #2563eb; outline-offset: 4px; }
+.sign-hero, .sign-workspace, .sign-guide, .sign-sources { width: min(1180px, calc(100% - 40px)); margin-inline: auto; }
+.sign-hero { display: grid; grid-template-columns: 1.25fr 1fr; gap: 48px; align-items: center; padding-block: 60px 52px; }
+.sign-eyebrow { color: var(--blue); font-size: .8rem; font-weight: 700; letter-spacing: .05em; }
+.sign-hero h2 { font-size: clamp(2.5rem, 5vw, 4.4rem); font-weight: 900; line-height: 1.16; letter-spacing: -.045em; margin: 16px 0 22px; max-width: 12ch; }
+.sign-intro { font-size: 1.05rem; line-height: 1.85; max-width: 35em; color: var(--muted); margin-bottom: 24px; }
+.sign-primary, .sign-secondary {
+    display: inline-flex; align-items: center; justify-content: center; gap: 8px;
+    padding: 13px 22px; border-radius: 12px; font-weight: 700; border: 2px solid transparent;
+    text-align: center; text-decoration: none;
+}
+.sign-primary { background: var(--blue); color: white; box-shadow: 0 4px 0 #143aa7; }
+.sign-primary:hover { background: #1e40af; }
+.sign-secondary { background: white; color: var(--ink); border-color: var(--line); }
+.sign-secondary:hover { border-color: #9aa9b7; }
+.sign-hero-art { height: 300px; position: relative; border-radius: 36px; background: var(--lime); overflow: hidden; }
+.hero-sign { position: absolute; width: 128px; height: 128px; object-fit: contain; background: white; padding: 9px; box-shadow: 0 10px 18px #223c1a1a; border-radius: 20px; z-index: 1; }
+.hero-stop { left: 9%; top: 24px; transform: rotate(-9deg); }
+.hero-winding { right: 7%; top: 42px; transform: rotate(12deg); }
+.hero-yield { left: 35%; bottom: 18px; transform: rotate(-2deg); }
+.hero-road { position: absolute; width: 160%; height: 80px; bottom: 35px; left: -20%; background: #163c37; transform: rotate(-19deg); }
+.hero-road::after { content: ''; position: absolute; border-top: 3px dashed #e3efb1; width: 100%; top: 40px; }
+.sign-workspace { border: 1px solid var(--line); border-radius: 24px; background: white; box-shadow: 0 10px 35px #12273e07; overflow: hidden; }
+.sign-toolbar { display: flex; gap: 24px; justify-content: space-between; align-items: center; padding: 24px; border-bottom: 1px solid var(--line); }
+.sign-modes { display: flex; gap: 5px; flex-wrap: wrap; }
+.sign-modes button { border: 0; padding: 11px 17px; border-radius: 10px; color: var(--muted); font-weight: 700; }
+.sign-modes button:hover { background: #f1f5f9; }
+.sign-modes button[aria-pressed=true] { background: var(--ink); color: white; }
+.sign-progress { min-width: 160px; font-size: .8rem; color: var(--muted); }
+.sign-meter { width: 100%; height: 6px; margin-top: 9px; background: #e9eef1; border-radius: 20px; overflow: hidden; }
+.sign-meter > div { height: 100%; background: #65a30d; border-radius: 20px; transition: width .2s; }
+.sign-filters { display: flex; align-items: end; gap: 18px; padding: 22px 26px; background: #fbfcfc; border-bottom: 1px solid var(--line); }
+.sign-field { display: flex; flex-direction: column; gap: 7px; font-size: .8rem; font-weight: 700; min-width: 0; }
+.sign-field input, .sign-field select { border: 1px solid #ccd6dd; border-radius: 9px; padding: 10px 12px; background: white; color: var(--ink); font-size: .9rem; height: 45px; width: 100%; }
+.sign-field select { max-width: 100%; min-width: 225px; }
+.sign-search-field { flex: 1; max-width: 370px; }
+.sign-filter-count { margin-left: auto; font-size: .8rem; color: var(--muted); padding-bottom: 12px; white-space: nowrap; }
+.sign-activity { padding: 26px; scroll-margin-top: 24px; }
+.sign-section-help { font-size: .875rem; line-height: 1.7; color: var(--muted); margin-bottom: 22px; }
+.sign-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 14px; align-items: start; }
+.sign-card { border: 1px solid var(--line); border-radius: 14px; overflow: hidden; background: #fff; }
+.sign-card:hover { border-color: #94a3b8; }
+.sign-card summary { list-style: none; cursor: pointer; padding: 18px 14px 14px; text-align: center; }
+.sign-card summary::-webkit-details-marker { display: none; }
+.sign-card summary::after { content: '+'; display: block; margin-top: 8px; color: var(--blue); font-size: 1.2rem; line-height: 1; }
+.sign-card[open] { background: #f7fbff; border-color: #8bb0e9; }
+.sign-card[open] summary::after { content: '−'; }
+.sign-card img { display: block; object-fit: contain; width: 100%; height: 112px; margin-bottom: 16px; }
+.sign-card h4 { font-size: .85rem; font-weight: 700; line-height: 1.6; min-height: 2.8em; }
+.sign-card-body { padding: 0 15px 18px; font-size: .8rem; line-height: 1.8; color: var(--muted); }
+.sign-known { border: 1px solid #afbdca; border-radius: 8px; padding: 7px 10px; margin-top: 13px; font-size: .8rem; font-weight: 700; background: white; }
+.sign-known[aria-pressed=true] { background: #eef8d8; border-color: #93b964; color: #3f6212; }
+.sign-source-link { display: block; font-size: .72rem; margin-top: 12px; text-decoration: underline; color: #51667e; }
+.sign-session-heading { display: flex; align-items: center; justify-content: space-between; gap: 20px; }
+.sign-session-heading h4 { font-size: 1.35rem; font-weight: 900; }
+.sign-text-button { color: var(--blue); font-weight: 700; font-size: .85rem; text-decoration: underline; text-underline-offset: 4px; }
+.sign-flashcard { max-width: 640px; margin: 24px auto 6px; text-align: center; }
+.flash-face { min-height: 390px; display: flex; flex-direction: column; align-items: center; justify-content: center; border: 2px solid #cddbc4; border-radius: 22px; padding: 28px; background: #f6faef; }
+.flash-face img { width: 100%; max-width: 290px; height: 190px; object-fit: contain; margin-bottom: 22px; }
+.flash-face h5 { font-size: 1.3rem; font-weight: 900; margin-bottom: 10px; }
+.flash-face p { max-width: 450px; font-size: .95rem; line-height: 1.8; color: var(--muted); }
+.flash-controls { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 20px; }
+.flash-controls button { font-size: .85rem; padding: 10px 14px; }
+.flash-position { font-size: .8rem; color: var(--muted); }
+.sign-quiz-setup { display: grid; grid-template-columns: 1.5fr 1fr; gap: 40px; background: #f3f7ec; border: 1px solid #d9e4cd; border-radius: 20px; padding: 36px; align-items: center; }
+.sign-quiz-setup h4 { font-size: 2rem; font-weight: 900; margin: 10px 0 14px; line-height: 1.3; }
+.sign-quiz-setup p { font-size: .9rem; line-height: 1.8; color: var(--muted); }
+.sign-quiz-setup .sign-eyebrow { color: #4d6928; font-weight: 700; }
+.sign-quiz-actions { display: flex; flex-direction: column; gap: 14px; }
+.sign-best { margin-top: 16px; font-weight: 700; }
+.quiz-status { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 10px; font-size: .8rem; color: var(--muted); }
+.quiz-streak { color: #4d6928; font-weight: 700; }
+.quiz-question { text-align: center; padding-block: 28px 22px; }
+.quiz-question h4 { font-size: 1.45rem; font-weight: 900; line-height: 1.6; }
+.quiz-question img { display: block; width: 100%; max-width: 300px; height: 190px; object-fit: contain; margin: 20px auto 0; }
+.quiz-prompt-title { color: var(--blue); font-size: 1.05rem; margin-top: 12px; font-weight: 700; }
+.quiz-options { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 12px; max-width: 760px; margin-inline: auto; }
+.quiz-option { border: 2px solid #d8e1e8; border-radius: 13px; padding: 15px 18px; background: white; text-align: left; display: flex; align-items: center; gap: 12px; line-height: 1.6; font-size: .95rem; }
+.quiz-option:hover:enabled { background: #f4f8ff; border-color: #99b4df; }
+.quiz-option.is-correct { border-color: #65a30d; background: #f1f9e5; }
+.quiz-option.is-wrong { border-color: #e06565; background: #fff2f2; }
+.quiz-option img { width: 100%; height: 120px; object-fit: contain; }
+.quiz-option-image { flex-direction: column; }
+.quiz-option-mark { width: 28px; height: 28px; border-radius: 8px; background: #edf1f5; display: inline-flex; justify-content: center; align-items: center; font-size: .85rem; font-weight: 700; flex-shrink: 0; }
+.quiz-feedback { max-width: 760px; margin: 22px auto 0; padding: 22px; background: #f4f7fb; border-radius: 14px; }
+.quiz-feedback h5 { font-size: 1.1rem; font-weight: 900; margin-bottom: 8px; }
+.quiz-feedback p { line-height: 1.8; color: var(--muted); font-size: .95rem; }
+.quiz-feedback .sign-primary { margin-top: 20px; }
+.quiz-results { max-width: 760px; margin-inline: auto; text-align: center; }
+.quiz-results h4 { font-size: 2rem; font-weight: 900; margin: 16px 0; }
+.quiz-score { font-size: 4rem; font-weight: 900; color: var(--blue); line-height: 1.2; }
+.quiz-results > p { color: var(--muted); line-height: 1.8; margin-block: 14px 22px; }
+.quiz-results-actions { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 30px; }
+.quiz-review { text-align: left; border-top: 1px solid var(--line); padding-top: 20px; }
+.quiz-review h5 { font-size: 1.1rem; font-weight: 900; margin-bottom: 18px; }
+.quiz-review article { display: flex; gap: 20px; align-items: center; padding: 15px 0; border-bottom: 1px solid var(--line); }
+.quiz-review img { width: 75px; height: 85px; object-fit: contain; flex-shrink: 0; }
+.quiz-review h6 { font-weight: 700; margin-bottom: 5px; }
+.quiz-review p { color: var(--muted); line-height: 1.8; font-size: .85rem; }
+.sign-guide { padding-block: 50px 32px; }
+.sign-guide h3, .sign-sources h3 { font-size: 1.4rem; font-weight: 900; margin-bottom: 10px; }
+.sign-guide > div > p, .sign-sources > p { color: var(--muted); font-size: .875rem; line-height: 1.8; }
+.sign-shape-grid { display: grid; grid-template-columns: repeat(6, minmax(0, 1fr)); gap: 16px; margin-top: 26px; }
+.sign-shape-grid article { border-top: 2px solid #d4ded1; padding-top: 20px; }
+.sign-shape-grid img { width: 60px; height: 60px; object-fit: contain; margin-bottom: 15px; }
+.sign-shape-grid h4 { font-weight: 700; font-size: .85rem; margin-bottom: 6px; }
+.sign-shape-grid p { color: var(--muted); font-size: .8rem; line-height: 1.8; }
+.sign-sources { border-top: 1px solid var(--line); padding-block: 30px 50px; }
+.sign-sources > p { margin-bottom: 10px; }
+.sign-sources a { color: var(--blue); text-decoration: underline; text-underline-offset: 3px; }
+@media (max-width: 900px) {
+    .sign-hero { gap: 28px; }
+    .sign-hero-art { height: 260px; }
+    .hero-sign { width: 105px; height: 105px; }
+    .sign-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+    .sign-toolbar { flex-direction: column; align-items: stretch; gap: 16px; }
+    .sign-progress { max-width: 320px; }
+    .sign-shape-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+@media (max-width: 600px) {
+    .sign-hero, .sign-workspace, .sign-guide, .sign-sources { width: calc(100% - 24px); }
+    .sign-hero { grid-template-columns: 1fr; gap: 24px; padding-block: 32px; }
+    .sign-hero h2 { font-size: 2.65rem; max-width: 14ch; }
+    .sign-hero-art { height: 190px; border-radius: 22px; }
+    .hero-sign { width: 98px; height: 98px; border-radius: 14px; }
+    .hero-stop { top: 16px; left: 10%; }
+    .hero-winding { right: 9%; top: 19px; }
+    .hero-yield { left: 38%; bottom: 12px; width: 90px; height: 90px; }
+    .sign-toolbar { padding: 16px; }
+    .sign-modes { flex-wrap: nowrap; gap: 2px; justify-content: space-between; }
+    .sign-modes button { padding: 10px 9px; font-size: .8rem; }
+    .sign-progress { max-width: 100%; }
+    .sign-filters { padding: 16px; flex-wrap: wrap; gap: 14px; }
+    .sign-field { width: 100%; }
+    .sign-field select { min-width: 0; }
+    .sign-search-field { max-width: 100%; flex: auto; }
+    .sign-filter-count { margin-left: 0; padding-bottom: 0; }
+    .sign-activity { padding: 18px 14px; }
+    .sign-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+    .sign-card summary { padding: 14px 8px 10px; }
+    .sign-card img { height: 95px; margin-bottom: 10px; }
+    .sign-card h4 { font-size: .8rem; }
+    .sign-card-body { padding: 0 10px 14px; }
+    .sign-session-heading h4 { font-size: 1.1rem; }
+    .sign-quiz-setup { grid-template-columns: 1fr; gap: 22px; padding: 24px 18px; }
+    .sign-quiz-setup h4 { font-size: 1.6rem; }
+    .quiz-options { grid-template-columns: 1fr; }
+    .quiz-options-images { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+    .quiz-option { padding: 13px 12px; font-size: .9rem; }
+    .quiz-option img { height: 95px; }
+    .quiz-question h4 { font-size: 1.2rem; }
+    .quiz-question img { height: 165px; }
+    .quiz-feedback { padding: 18px; }
+    .flash-face { padding: 22px 15px; min-height: 370px; }
+    .flash-face img { height: 155px; }
+    .flash-controls { flex-wrap: wrap; }
+    .flash-controls button { font-size: .8rem; padding: 10px 12px; }
+    .sign-shape-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+@media (prefers-reduced-motion: reduce) {
+    .sign-lab *, .sign-lab *::after { transition: none !important; }
+}
