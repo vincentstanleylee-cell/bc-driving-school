@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-HK">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>即死位與模擬評分 · BC Driving Master</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/lucide@latest"></script>
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Noto Sans TC', sans-serif; }
+        .gradient-hero { background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #be123c 100%); }
+    </style>
+</head>
+<body class="bg-slate-50 text-slate-800 antialiased min-h-screen flex flex-col">
+
+    <div id="site-header"></div>
+
+    <section class="gradient-hero text-white py-14 px-4">
+        <div class="container mx-auto max-w-6xl">
+            <p class="text-rose-300 font-semibold text-sm uppercase tracking-wider mb-2">Module 07 · 最後一課</p>
+            <h2 class="text-3xl md:text-4xl font-black mb-4">即死位與模擬評分</h2>
+            <p class="text-slate-300 max-w-3xl leading-relaxed">路試一旦踩中即死位，之前做得幾好都冇用。下面先檢查即死位，再用練習評分表記錄扣分。</p>
+        </div>
+    </section>
+
+    <main class="container mx-auto px-4 py-12 max-w-6xl flex-grow space-y-12" data-scorer>
+
+        <!-- Result summary -->
+        <section class="bg-white rounded-3xl border-2 border-slate-200 p-6 md:p-8 shadow-sm grid md:grid-cols-3 gap-6 items-center sticky top-20 z-10">
+            <div class="md:col-span-2">
+                <p class="text-sm text-slate-500 mb-1">模擬結果</p>
+                <p id="scorer-result" class="text-2xl font-black text-emerald-600">練習通過</p>
+                <p id="scorer-detail" class="text-sm text-slate-600 mt-2">即死位 0 項　｜　扣分合計 0 分</p>
+            </div>
+            <div class="text-right">
+                <button type="button" id="scorer-reset" class="bg-slate-100 hover:bg-slate-200 text-slate-800 font-semibold px-5 py-2.5 rounded-xl transition">重設評分表</button>
+            </div>
+        </section>
+
+        <!-- Automatic fails -->
+        <section>
+            <h3 class="text-2xl font-bold text-rose-700 mb-2 flex items-center gap-2"><i data-lucide="shield-x" class="w-6 h-6"></i> 第一部分：即死位（Automatic Fails）</h3>
+            <p class="text-slate-600 mb-6">如果喺路試中出現下面任何一項，考官會即時評定不及格。模擬時請誠實勾選。</p>
+            <div class="grid md:grid-cols-2 gap-3">
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>1. 停牌未完全停定</strong>（Rolling Stop）</span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>2. 學校區 / 遊樂場區超速</strong>（哪怕只超 1 km/h）</span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>3. 轉彎 / 轉線漏做 Shoulder Check</strong></span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>4. 車輪騎上路緣</strong>（Mounting the Curb）</span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>5. 搶路權</strong>（Fail to Yield），令其他車輛減速或避讓</span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>6. 衝黃燈 / 殘舊綠燈</strong>，本可安全煞停</span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>7. 左轉提早打斜車輪</strong></span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>8. 行人已踏入斑馬線仍強行通過</strong></span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>9. 雙腳開車，或手掌摸軚盤（Palming）</strong></span></label>
+                <label class="flex items-start gap-3 bg-white p-4 rounded-xl border border-rose-100 cursor-pointer hover:border-rose-300"><input type="checkbox" data-fail class="mt-1 w-5 h-5 accent-rose-600"><span><strong>10. 考官實質介入</strong>（扭動方向盤或踩副煞車）</span></label>
+            </div>
+        </section>
+
+        <!-- Demerits -->
+        <section>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="clipboard-list" class="w-6 h-6 text-blue-600"></i> 第二部分：扣分項目（練習用）</h3>
+            <p class="text-slate-600 mb-2">按出現次數輸入。<strong>扣分值係練習用參考，並非 ICBC 官方分值</strong>；正式評分以 ICBC 最新路試評分表為準。</p>
+            <p class="text-xs text-amber-700 font-semibold mb-6">[VERIFY] 練習上限 15 分，待與 ICBC 官方評分表核對。</p>
+            <div class="overflow-x-auto bg-white rounded-2xl border border-slate-200 shadow-sm">
+                <table class="w-full text-sm text-left">
+                    <thead class="bg-slate-100 text-slate-700">
+                        <tr><th class="p-4">扣分項目</th><th class="p-4 w-28">練習扣分值</th><th class="p-4 w-28">次數</th></tr>
+                    </thead>
+                    <tbody class="divide-y divide-slate-100">
+                        <tr><td class="p-4">Mirror / 觀察不足（中鏡、側鏡沒有適時確認）</td><td class="p-4">1</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="1" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">打指揮燈太遲或漏打</td><td class="p-4">1</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="1" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">跟車距離太近（少於 2 秒）</td><td class="p-4">2</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="2" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">起步、煞車、轉向不順暢（點頭、猛然）</td><td class="p-4">2</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="2" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">車位停放偏離、泊車位置不當</td><td class="p-4">3</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="3" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">危險預判答題不完整或冇行動</td><td class="p-4">2</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="2" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                        <tr><td class="p-4">超速（未達即死位）</td><td class="p-4">3</td><td class="p-4"><input type="number" min="0" max="20" value="0" data-demerit data-points="3" class="w-20 border border-slate-300 rounded-lg px-2 py-1"></td></tr>
+                    </tbody>
+                </table>
+            </div>
+        </section>
+
+        <!-- Pass rate guidance -->
+        <section class="grid md:grid-cols-2 gap-6">
+            <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
+                <h4 class="font-bold text-lg mb-2">點樣理解呢個結果</h4>
+                <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
+                    <li>只要有一項即死位，模擬結果即為不及格，扣分多寡無關。</li>
+                    <li>冇即死位但扣分超過練習上限，都視為練習不及格。</li>
+                    <li>連續 3 次模擬都做到「練習通過」，先至考慮約考。</li>
+                </ul>
+            </div>
+            <div class="bg-rose-50 rounded-2xl border border-rose-200 p-6">
+                <h4 class="font-bold text-rose-800 mb-2">自我提醒</h4>
+                <p class="text-sm text-slate-700 leading-relaxed">本頁係自學工具，並非 ICBC 官方評分。考試規則、扣分及即死位，以 ICBC 當時公布嘅資料為準。考試前請向持牌駕駛導師或 ICBC 核實最新要求。</p>
+            </div>
+        </section>
+    </main>
+
+    <div id="site-footer"></div>
+    <script src="./app.js" defer></script>
+</body>
+</html>

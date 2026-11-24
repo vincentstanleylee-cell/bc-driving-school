@@ -1,0 +1,7 @@
+# Allow-list style: the harness holds private notes and local state, so it is never published.
+the harness/
+*.env
+.env*
+node_modules/
+.DS_Store
+Thumbs.db
