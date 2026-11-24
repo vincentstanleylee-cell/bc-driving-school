@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="yue-Hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>車廂座艙與出發前檢查 · BC Driving Master</title>
+    <title data-i18n="cockpit.title">車廂座艙與出發前檢查 · BC Driving Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -20,9 +20,9 @@
 
     <section class="gradient-hero text-white py-14 px-4">
         <div class="container mx-auto max-w-6xl">
-            <p class="text-sky-300 font-semibold text-sm uppercase tracking-wider mb-2">Module 01 · 第一課</p>
-            <h2 class="text-3xl md:text-4xl font-black mb-4">車廂座艙與出發前檢查</h2>
-            <p class="text-slate-300 max-w-3xl leading-relaxed">考官第一件事就是看你上車之後點樣準備。座位、後視鏡、腳位與檔位都要先調好，才開始駕駛。</p>
+            <p data-i18n="shared.module1" class="text-sky-300 font-semibold text-sm uppercase tracking-wider mb-2">第一課</p>
+            <h2 data-i18n="cockpit.heading" class="text-3xl md:text-4xl font-black mb-4">車廂座艙與出發前檢查</h2>
+            <p data-i18n="cockpit.intro" class="text-slate-300 max-w-3xl leading-relaxed">考官第一件事就是看你上車之後點樣準備。座位、後視鏡、腳位與檔位都要先調好，才開始駕駛。</p>
         </div>
     </section>
 
@@ -31,118 +31,120 @@
         <!-- 360 exterior check -->
         <section class="grid md:grid-cols-2 gap-8 items-start">
             <div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="scan-eye" class="w-6 h-6 text-blue-600"></i> 360 度車外檢查</h3>
-                <p class="text-slate-600 mb-6">上車前繞車一圈，每項打勾。進度會保存在瀏覽器中。</p>
+                <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="scan-eye" class="w-6 h-6 text-blue-600"></i> <span data-i18n="cockpit.walkAround">360 度車外檢查</span></h3>
+                <p data-i18n="cockpit.walkAroundIntro" class="text-slate-600 mb-6">上車前繞車一圈，每項打勾。進度會保存在瀏覽器中。</p>
                 <div data-checklist="cockpit-exterior" class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
                     <div class="flex items-center justify-between mb-3 text-sm font-semibold text-slate-600">
-                        <span>完成進度 <span data-checklist-count>0 / 0</span></span>
-                        <button type="button" data-checklist-reset class="text-blue-600 hover:underline">重設</button>
+                        <span><span data-i18n="shared.progress">完成進度</span> <span data-checklist-count>0 / 0</span></span>
+                        <button data-i18n="shared.reset" type="button" data-checklist-reset class="text-blue-600 hover:underline">重設</button>
                     </div>
                     <div class="h-2 bg-slate-100 rounded-full overflow-hidden mb-5"><div data-checklist-bar class="h-full bg-emerald-500 transition-all" style="width:0%"></div></div>
                     <ul class="space-y-3">
-                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong>輪胎胎壓與花紋</strong>：四隻輪胎都要目測，唔好有明顯扁胎或鐵線外露。</span></label></li>
-                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong>煞車燈、指揮燈、倒車燈、車牌燈</strong>：請另一人幫手，或對著玻璃反光檢查。</span></label></li>
-                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong>車底無漏液</strong>：地面有無油、水或冷氣液滴下。</span></label></li>
-                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong>車身、後車窗與後視鏡</strong>：玻璃清潔，鏡面無遮擋。</span></label></li>
-                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong>車牌清晰</strong>：前後牌照無遮擋，燈光正常。</span></label></li>
+                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong data-i18n="cockpit.tires">輪胎胎壓與花紋</strong><span data-i18n="cockpit.tiresCheck">：四隻輪胎都要目測，唔好有明顯扁胎或鐵線外露。</span></span></label></li>
+                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong data-i18n="cockpit.lights">煞車燈、指揮燈、倒車燈、車牌燈</strong><span data-i18n="cockpit.lightsCheck">：請另一人幫手，或對著玻璃反光檢查。</span></span></label></li>
+                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong data-i18n="cockpit.leaks">車底無漏液</strong><span data-i18n="cockpit.leaksCheck">：地面有無油、水或冷氣液滴下。</span></span></label></li>
+                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong data-i18n="cockpit.glass">車身、後車窗與後視鏡</strong><span data-i18n="cockpit.glassCheck">：玻璃清潔，鏡面無遮擋。</span></span></label></li>
+                        <li><label class="flex items-start gap-3"><input type="checkbox" class="mt-1 w-5 h-5 accent-blue-600"><span><strong data-i18n="cockpit.plates">車牌清晰</strong><span data-i18n="cockpit.platesCheck">：前後牌照無遮擋，燈光正常。</span></span></label></li>
                     </ul>
                 </div>
             </div>
             <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                <img src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=900&q=80" alt="白色電動房車停在山邊路面，車身外觀完整" class="w-full h-72 object-cover" onerror="this.style.display='none'">
-                <figcaption class="p-4 text-sm text-slate-600">繞車一圈時，留意輪胎、燈號、車底與玻璃。</figcaption>
+                <img data-i18n-alt="cockpit.photo" src="https://images.unsplash.com/photo-1560958089-b8a1929cea89?w=900&q=80" alt="白色電動房車停在山邊路面，車身外觀完整" class="w-full h-72 object-cover" onerror="this.style.display='none'">
+                <figcaption data-i18n="cockpit.caption" class="p-4 text-sm text-slate-600">繞車一圈時，留意輪胎、燈號、車底與玻璃。</figcaption>
             </figure>
         </section>
 
         <!-- Golden setup -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="armchair" class="w-6 h-6 text-blue-600"></i> 座位與後視鏡「黃金調整法」</h3>
-            <p class="text-slate-600 mb-6">上車後先做這四件事，之後整個路試都會更穩定。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="armchair" class="w-6 h-6 text-blue-600"></i> <span data-i18n="cockpit.adjustmentHeading">座位與後視鏡「黃金調整法」</span></h3>
+            <p data-i18n="cockpit.adjustmentIntro" class="text-slate-600 mb-6">上車後先做這四件事，之後整個路試都會更穩定。</p>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <h4 class="font-bold text-lg mb-3">1. 座位與方向盤</h4>
+                    <h4 data-i18n="cockpit.seat" class="font-bold text-lg mb-3">1. 座位與方向盤</h4>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
-                        <li>臀部緊貼椅背，背脊挺直，兩手放在方向盤上，手腕可以自然垂放在頂端。</li>
-                        <li>膝頭微曲，踩下煞車時膝蓋唔會接近方向盤。</li>
-                        <li>雙手握方向盤 9 點 3 點或 10 點 2 點位置。</li>
+                        <li data-i18n="cockpit.seatPosture">臀部緊貼椅背，背脊挺直，兩手放在方向盤上，手腕可以自然垂放在頂端。</li>
+                        <li data-i18n="cockpit.seatKnees">膝頭微曲，踩下煞車時膝蓋唔會接近方向盤。</li>
+                        <li data-i18n="cockpit.seatHands">雙手握方向盤 9 點 3 點或 10 點 2 點位置。</li>
                     </ul>
                 </div>
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <h4 class="font-bold text-lg mb-3">2. 腳位（嚴禁雙腳開車）</h4>
+                    <h4 data-i18n="cockpit.footHeading" class="font-bold text-lg mb-3">2. 腳位（嚴禁雙腳開車）</h4>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
-                        <li>左腳放在歇腳踏板（Footrest），永遠唔好踏油門或煞車。</li>
-                        <li>右腳以<strong>腳跟為軸心</strong>，在煞車與油門之間切換。</li>
-                        <li>雙腳同時踩兩邊踏板，屬於即時不及格行為。</li>
+                        <li data-i18n="cockpit.leftFoot">左腳放在歇腳踏板（Footrest），永遠唔好踏油門或煞車。</li>
+                        <li><span data-i18n="cockpit.rightFootStart">右腳以</span><strong data-i18n="cockpit.rightFootPivot">腳跟為軸心</strong><span data-i18n="cockpit.rightFootFinish">，在煞車與油門之間切換。</span></li>
+                        <li data-i18n="cockpit.bothPedals">雙腳同時踩兩邊踏板，屬於即時不及格行為。</li>
                     </ul>
                 </div>
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <h4 class="font-bold text-lg mb-3">3. 中央後視鏡</h4>
-                    <p class="text-sm text-slate-700">調整至完整框住整個後車窗，左右兩邊都見到，不需要左右移頭。</p>
+                    <h4 data-i18n="cockpit.rearView" class="font-bold text-lg mb-3">3. 中央後視鏡</h4>
+                    <p data-i18n="cockpit.rearViewSetup" class="text-sm text-slate-700">調整至完整框住整個後車窗，左右兩邊都見到，不需要左右移頭。</p>
                 </div>
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <h4 class="font-bold text-lg mb-3">4. 左右側後視鏡</h4>
-                    <p class="text-sm text-slate-700">車身只佔鏡內 1/4 至 1/5（靠近鏡邊），地平線大約在鏡子中央。目的是盡量看到車身外側的路面，減少盲點。</p>
+                    <h4 data-i18n="cockpit.sideMirrors" class="font-bold text-lg mb-3">4. 左右側後視鏡</h4>
+                    <p data-i18n="cockpit.sideMirrorsSetup" class="text-sm text-slate-700">車身只佔鏡內 1/4 至 1/5（靠近鏡邊），地平線大約在鏡子中央。目的是盡量看到車身外側的路面，減少盲點。</p>
                 </div>
             </div>
         </section>
 
         <!-- Gears -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="settings-2" class="w-6 h-6 text-blue-600"></i> 自動波檔位：P-R-N-D-2-1</h3>
-            <p class="text-slate-600 mb-6">點開每一個檔位，睇清楚用途同注意事項。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="settings-2" class="w-6 h-6 text-blue-600"></i> <span data-i18n="cockpit.gears">自動波檔位：P-R-N-D-2-1</span></h3>
+            <p data-i18n="cockpit.gearsIntro" class="text-slate-600 mb-6">點開每一個檔位，睇清楚用途同注意事項。</p>
             <div class="space-y-3">
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm" open>
-                    <summary class="font-bold cursor-pointer text-lg">P（Park）停車檔</summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">機械棘爪鎖住變速箱輸出軸。每次停車先踩煞車、拉手煞車，然後才入 P 檔，保護變速箱齒輪。停車前唔好先入 P 檔再拉手煞車。</p>
+                    <summary data-i18n="cockpit.park" class="font-bold cursor-pointer text-lg">P（Park）停車檔</summary>
+                    <p data-i18n="cockpit.parkUse" class="mt-3 text-sm text-slate-700 leading-relaxed">機械棘爪鎖住變速箱輸出軸。每次停車先踩煞車、拉手煞車，然後才入 P 檔，保護變速箱齒輪。停車前唔好先入 P 檔再拉手煞車。</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer text-lg">R（Reverse）倒車檔</summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">倒車前必須完全停定，先做 360 度環視，再直接向後望窗。打倒車燈後慢慢鬆煞車。</p>
+                    <summary data-i18n="cockpit.reverse" class="font-bold cursor-pointer text-lg">R（Reverse）倒車檔</summary>
+                    <p data-i18n="cockpit.reverseUse" class="mt-3 text-sm text-slate-700 leading-relaxed">倒車前必須完全停定，先做 360 度環視，再直接向後望窗。打倒車燈後慢慢鬆煞車。</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer text-lg">N（Neutral）空檔</summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">車輪唔受動力驅動，用於洗車、拖車或推車。路試期間唔應該停在 N 檔等待，因為唔能即時起步。</p>
+                    <summary data-i18n="cockpit.neutral" class="font-bold cursor-pointer text-lg">N（Neutral）空檔</summary>
+                    <p data-i18n="cockpit.neutralUse" class="mt-3 text-sm text-slate-700 leading-relaxed">車輪唔受動力驅動，用於洗車、拖車或推車。路試期間唔應該停在 N 檔等待，因為唔能即時起步。</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer text-lg">D（Drive）前進檔</summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">正常行駛用的檔位，變速箱自動按車速換檔。</p>
+                    <summary data-i18n="cockpit.drive" class="font-bold cursor-pointer text-lg">D（Drive）前進檔</summary>
+                    <p data-i18n="cockpit.driveUse" class="mt-3 text-sm text-slate-700 leading-relaxed">正常行駛用的檔位，變速箱自動按車速換檔。</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer text-lg">2 / 1 / L 低速檔</summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">限制最高檔位，用於雪地起步，或落長斜坡時利用<strong>引擎制動（Engine Braking）</strong>減速，減少煞車過熱。落坡時可以一邊入低檔一邊輕踩煞車。</p>
+                    <summary data-i18n="cockpit.lowGear" class="font-bold cursor-pointer text-lg">2 / 1 / L 低速檔</summary>
+                    <p class="mt-3 text-sm text-slate-700 leading-relaxed"><span data-i18n="cockpit.lowGearStart">限制最高檔位，用於雪地起步，或落長斜坡時利用</span><strong data-i18n="cockpit.engineBraking">引擎制動（Engine Braking）</strong><span data-i18n="cockpit.lowGearFinish">減速，減少煞車過熱。落坡時可以一邊入低檔一邊輕踩煞車。</span></p>
                 </details>
             </div>
         </section>
 
         <!-- Dashboard lights -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="gauge" class="w-6 h-6 text-blue-600"></i> 儀表板警示燈圖鑑</h3>
-            <p class="text-slate-600 mb-6">開車前點火，所有燈應該亮一下後熄滅。若某盞燈持續亮起，要即時處理或停車檢查。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="gauge" class="w-6 h-6 text-blue-600"></i> <span data-i18n="cockpit.warnings">儀表板警示燈圖鑑</span></h3>
+            <p data-i18n="cockpit.warningsIntro" class="text-slate-600 mb-6">開車前點火，所有燈應該亮一下後熄滅。若某盞燈持續亮起，要即時處理或停車檢查。</p>
             <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 class="font-bold">煞車系統警示燈</h4><p class="text-sm text-slate-600 mt-1">手煞車未放、煞車油不足。路試前必須熄滅。</p></div>
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 class="font-bold">機油壓力警示燈</h4><p class="text-sm text-slate-600 mt-1">機油壓力不足，應即時停車熄火。</p></div>
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 class="font-bold">水溫警示燈</h4><p class="text-sm text-slate-600 mt-1">引擎過熱。停車，待冷卻後檢查，唔好即刻開蓋。</p></div>
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold mb-2">黃色 · 留意</span><h4 class="font-bold">ABS 防鎖死煞車燈</h4><p class="text-sm text-slate-600 mt-1">ABS 系統有故障，普通煞車仍然有效，但防鎖死功能失效。</p></div>
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold mb-2">黃色 · 留意</span><h4 class="font-bold">引擎故障燈（Check Engine）</h4><p class="text-sm text-slate-600 mt-1">排放或引擎系統異常。閃爍時應即時減速，避免損壞催化器。</p></div>
-                <div class="bg-white rounded-xl border border-slate-200 p-5"><span class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 class="font-bold">安全帶警示燈</h4><p class="text-sm text-slate-600 mt-1">駕駛者或乘客未繫安全帶。考試前必須繫好。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.redWarning" class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 data-i18n="cockpit.brakeWarning" class="font-bold">煞車系統警示燈</h4><p data-i18n="cockpit.brakeWarningDetail" class="text-sm text-slate-600 mt-1">手煞車未放、煞車油不足。路試前必須熄滅。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.redWarning" class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 data-i18n="cockpit.oilWarning" class="font-bold">機油壓力警示燈</h4><p data-i18n="cockpit.oilWarningDetail" class="text-sm text-slate-600 mt-1">機油壓力不足，應即時停車熄火。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.redWarning" class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 data-i18n="cockpit.coolantWarning" class="font-bold">水溫警示燈</h4><p data-i18n="cockpit.coolantWarningDetail" class="text-sm text-slate-600 mt-1">引擎過熱。停車，待冷卻後檢查，唔好即刻開蓋。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.amberWarning" class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold mb-2">黃色 · 留意</span><h4 data-i18n="cockpit.absWarning" class="font-bold">ABS 防鎖死煞車燈</h4><p data-i18n="cockpit.absWarningDetail" class="text-sm text-slate-600 mt-1">ABS 系統有故障，普通煞車仍然有效，但防鎖死功能失效。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.amberWarning" class="inline-block px-2 py-0.5 rounded bg-amber-100 text-amber-800 text-xs font-bold mb-2">黃色 · 留意</span><h4 data-i18n="cockpit.engineWarning" class="font-bold">引擎故障燈（Check Engine）</h4><p data-i18n="cockpit.engineWarningDetail" class="text-sm text-slate-600 mt-1">排放或引擎系統異常。閃爍時應即時減速，避免損壞催化器。</p></div>
+                <div class="bg-white rounded-xl border border-slate-200 p-5"><span data-i18n="cockpit.redWarning" class="inline-block px-2 py-0.5 rounded bg-rose-100 text-rose-700 text-xs font-bold mb-2">紅色 · 即時處理</span><h4 data-i18n="cockpit.beltWarning" class="font-bold">安全帶警示燈</h4><p data-i18n="cockpit.beltWarningDetail" class="text-sm text-slate-600 mt-1">駕駛者或乘客未繫安全帶。考試前必須繫好。</p></div>
             </div>
         </section>
 
         <!-- Pre-drive summary -->
         <section class="bg-blue-50 border border-blue-200 rounded-2xl p-6">
-            <h3 class="text-xl font-bold text-blue-900 mb-4">出發前最後檢查</h3>
+            <h3 data-i18n="cockpit.finalCheck" class="text-xl font-bold text-blue-900 mb-4">出發前最後檢查</h3>
             <div data-checklist="cockpit-final" class="space-y-2 text-sm">
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> 座位、方向盤、後視鏡已調整</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> 繫好安全帶，儀表警示燈已熄滅</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> 手煞車已拉緊，由 P 檔入 D 或 R 檔前已經確認</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> 左腳在歇腳踏板，右腳腳跟放在煞車踏板右緣</label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> <span data-i18n="cockpit.adjusted">座位、方向盤、後視鏡已調整</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> <span data-i18n="cockpit.buckled">繫好安全帶，儀表警示燈已熄滅</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> <span data-i18n="cockpit.brakeSet">手煞車已拉緊，由 P 檔入 D 或 R 檔前已經確認</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-blue-600"> <span data-i18n="cockpit.feetSet">左腳在歇腳踏板，右腳腳跟放在煞車踏板右緣</span></label>
             </div>
-            <p class="text-xs text-slate-500 mt-4">如果四項全部完成，接著可以去<a href="./driving-basics.html" class="text-blue-700 underline">自動波技巧</a>學習起步與煞車。</p>
+            <p class="text-xs text-slate-500 mt-4"><span data-i18n="cockpit.nextLessonStart">如果四項全部完成，接著可以去</span><a data-i18n="cockpit.nextLessonLink" href="./driving-basics.html" class="text-blue-700 underline">自動波技巧</a><span data-i18n="cockpit.nextLessonFinish">學習起步與煞車。</span></p>
         </section>
     </main>
 
     <div id="site-footer"></div>
-    <script src="./i18n.js" defer></script>`r`n    <script src="./app.js" defer></script>
+    <script src="./translations.js" defer></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./app.js" defer></script>
 </body>
 </html>
 

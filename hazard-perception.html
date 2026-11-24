@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="yue-Hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>動態危險預判問答 · BC Driving Master</title>
+    <title data-i18n="hazardPerception.title">動態危險預判問答 · BC Driving Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -21,9 +21,9 @@
 
     <section class="gradient-hero text-white py-14 px-4">
         <div class="container mx-auto max-w-6xl">
-            <p class="text-cyan-300 font-semibold text-sm uppercase tracking-wider mb-2">Module 06 · 第六課</p>
-            <h2 class="text-3xl md:text-4xl font-black mb-4">動態危險預判問答</h2>
-            <p class="text-slate-300 max-w-3xl leading-relaxed">考官可能會話：「Please point out the hazards you see ahead.」你要講出看到咩、可能發生咩、你會點樣處理。</p>
+            <p data-i18n="shared.module6" class="text-cyan-300 font-semibold text-sm uppercase tracking-wider mb-2">第六課</p>
+            <h2 data-i18n="hazardPerception.heading" class="text-3xl md:text-4xl font-black mb-4">動態危險預判問答</h2>
+            <p data-i18n="hazardPerception.intro" class="text-slate-300 max-w-3xl leading-relaxed">考官可能會叫你指出前面有咩危險。你要講清楚見到乜、可能發生乜，同埋你會點處理。</p>
         </div>
     </section>
 
@@ -31,11 +31,11 @@
 
         <!-- Simulator -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="eye" class="w-6 h-6 text-cyan-600"></i> 互動場景：點擊找出 4 個危險</h3>
-            <p class="text-slate-600 mb-6">假設你以 50 km/h 行駛。點擊畫面上你認為有危險嘅位置（每個位置會顯示提示）。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="eye" class="w-6 h-6 text-cyan-600"></i> <span data-i18n="hazardPerception.sceneHeading">互動場景：點擊找出 4 個危險</span></h3>
+            <p data-i18n="hazardPerception.sceneIntro" class="text-slate-600 mb-6">假設你以 50 km/h 行駛。點擊畫面上你認為有危險嘅位置（每個位置會顯示提示）。</p>
             <div class="grid md:grid-cols-4 gap-6 items-start">
                 <div class="md:col-span-3 relative rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-slate-300 select-none">
-                    <svg viewBox="0 0 800 450" class="w-full h-auto block" role="img" aria-label="城市街道場景：路邊停車、行人與小童、左轉來車、路面水窪">
+                    <svg data-i18n-aria-label="hazardPerception.sceneLabel" viewBox="0 0 800 450" class="w-full h-auto block" role="img" aria-label="城市街道場景：路邊停車、行人與小童、左轉來車、路面水窪">
                         <!-- sky -->
                         <rect width="800" height="200" fill="#bae6fd"/>
                         <!-- buildings -->
@@ -70,13 +70,13 @@
                     </svg>
 
                     <!-- Hotspots -->
-                    <button type="button" data-hazard="parked" data-note="停泊車輛：車內可能有人，車門可能突然打開，或者車輛突然駛出。屬於潛在危險（Potential Hazard）。" aria-label="停泊車輛" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:24%; top:62%"></button>
-                    <button type="button" data-hazard="child" data-note="路邊小童與成人：小孩可能突然跑向路面，屬於實質危險（Real Hazard）。" aria-label="路邊行人與小童" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:65%; top:58%"></button>
-                    <button type="button" data-hazard="turning" data-note="對面左轉來車：可能未見到你就直接轉入，屬於實質危險（Real Hazard）。" aria-label="對面左轉來車" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:76%; top:48%"></button>
-                    <button type="button" data-hazard="puddle" data-note="路面水窪：水深未知，可能掩蓋坑洞；雨天煞車距離會增加。屬於潛在危險（Potential Hazard）。" aria-label="路面水窪" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:47%; top:87%"></button>
+                    <button data-i18n-aria-label="hazardPerception.parkedLabel" type="button" data-hazard="parked" aria-label="停泊車輛" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:24%; top:62%"></button>
+                    <button data-i18n-aria-label="hazardPerception.childLabel" type="button" data-hazard="child" aria-label="路邊行人與小童" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:65%; top:58%"></button>
+                    <button data-i18n-aria-label="hazardPerception.turningLabel" type="button" data-hazard="turning" aria-label="對面左轉來車" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:76%; top:48%"></button>
+                    <button data-i18n-aria-label="hazardPerception.puddleLabel" type="button" data-hazard="puddle" aria-label="路面水窪" class="absolute w-12 h-12 -translate-x-1/2 -translate-y-1/2 rounded-full border-2 border-white/90 bg-white/10 hover:bg-white/30 transition" style="left:47%; top:87%"></button>
                 </div>
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <p class="text-sm text-slate-500 mb-1">已找到</p>
+                    <p data-i18n="hazardPerception.found" class="text-sm text-slate-500 mb-1">已找到</p>
                     <p id="hazard-score" class="text-3xl font-black text-cyan-700">0 / 4</p>
                     <p id="hazard-feedback" class="mt-4 text-sm text-slate-700 leading-relaxed">點擊畫面上嘅圓圈，睇下提示。</p>
                 </div>
@@ -86,38 +86,38 @@
         <!-- Method -->
         <section class="grid md:grid-cols-2 gap-8 items-start">
             <div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="message-square-text" class="w-6 h-6 text-cyan-600"></i> 滿分答題格式</h3>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="message-square-text" class="w-6 h-6 text-cyan-600"></i> <span data-i18n="hazardPerception.answerHeading">滿分答題格式</span></h3>
                 <div class="bg-white rounded-2xl border border-slate-200 p-6 shadow-sm space-y-3 text-slate-700">
-                    <p><strong>1. 講出看到咩（What）</strong>：「I see a parked car with a person inside on my right.」</p>
-                    <p><strong>2. 講出可能發生咩（Could）</strong>：「It could open its door or pull out.」</p>
-                    <p><strong>3. 講出你會點做（Will）</strong>：「So I will slow down and keep a safe distance.」</p>
+                    <p><strong data-i18n="hazardPerception.answerWhat">1. 講出見到乜</strong><span data-i18n="hazardPerception.answerWhatExample">：「我見到右邊有架車泊低咗，車入面有人。」</span></p>
+                    <p><strong data-i18n="hazardPerception.answerCould">2. 講出可能發生乜</strong><span data-i18n="hazardPerception.answerCouldExample">：「可能會突然開車門，架車亦可能突然駛出嚟。」</span></p>
+                    <p><strong data-i18n="hazardPerception.answerWill">3. 講出你會點做</strong><span data-i18n="hazardPerception.answerWillExample">：「我會收慢同保持安全距離。」</span></p>
                 </div>
-                <p class="text-sm text-slate-600 mt-4">唔需要講得好長，但要清楚、具體，而且講出你即將採取嘅行動。</p>
+                <p data-i18n="hazardPerception.answerTip" class="text-sm text-slate-600 mt-4">唔需要講得好長，但要清楚、具體，而且講出你即將採取嘅行動。</p>
             </div>
             <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                <img src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=80" alt="橙色旅行車在紅色岩石之間的公路上行駛" class="w-full h-72 object-cover" onerror="this.style.display='none'">
-                <figcaption class="p-4 text-sm text-slate-600">遠方路況都要留意：路口、路邊、車頭燈同行人。</figcaption>
+                <img data-i18n-alt="hazardPerception.photo" src="https://images.unsplash.com/photo-1469854523086-cc02fe5d8800?w=900&q=80" alt="橙色旅行車在紅色岩石之間的公路上行駛" class="w-full h-72 object-cover" onerror="this.style.display='none'">
+                <figcaption data-i18n="hazardPerception.caption" class="p-4 text-sm text-slate-600">遠方路況都要留意：路口、路邊、車頭燈同行人。</figcaption>
             </figure>
         </section>
 
         <!-- Classification -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-6">實質危險 vs 潛在危險</h3>
+            <h3 data-i18n="hazardPerception.hazardTypes" class="text-2xl font-bold text-slate-900 mb-6">實質危險 vs 潛在危險</h3>
             <div class="grid md:grid-cols-2 gap-6">
                 <div class="bg-rose-50 border border-rose-200 rounded-2xl p-6">
-                    <h4 class="font-bold text-rose-800 mb-3">實質危險（Real Hazard）：已經在發生</h4>
+                    <h4 data-i18n="hazardPerception.realHeading" class="font-bold text-rose-800 mb-3">實質危險（Real Hazard）：已經在發生</h4>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
-                        <li>路邊有小孩或牽狗行人，正在靠近路面</li>
-                        <li>前方路口有車正準備左轉，未有讓路跡象</li>
-                        <li>前車突然煞車，或有車輛越線</li>
+                        <li data-i18n="hazardPerception.realChild">路邊有小孩或牽狗行人，正在靠近路面</li>
+                        <li data-i18n="hazardPerception.realTurn">前方路口有車正準備左轉，未有讓路跡象</li>
+                        <li data-i18n="hazardPerception.realBrake">前車突然煞車，或有車輛越線</li>
                     </ul>
                 </div>
                 <div class="bg-amber-50 border border-amber-200 rounded-2xl p-6">
-                    <h4 class="font-bold text-amber-800 mb-3">潛在危險（Potential Hazard）：可能會發生</h4>
+                    <h4 data-i18n="hazardPerception.potentialHeading" class="font-bold text-amber-800 mb-3">潛在危險（Potential Hazard）：可能會發生</h4>
                     <ul class="list-disc pl-5 space-y-2 text-sm text-slate-700">
-                        <li>正停在路邊、亮著煞車燈或車內有人的車輛</li>
-                        <li>路面水窪、施工鐵板、路面坑洞</li>
-                        <li>盲彎、隱蔽路口、被樹或車遮住視線的位置</li>
+                        <li data-i18n="hazardPerception.potentialCar">正停在路邊、亮著煞車燈或車內有人的車輛</li>
+                        <li data-i18n="hazardPerception.potentialRoad">路面水窪、施工鐵板、路面坑洞</li>
+                        <li data-i18n="hazardPerception.potentialSight">盲彎、隱蔽路口、被樹或車遮住視線的位置</li>
                     </ul>
                 </div>
             </div>
@@ -125,26 +125,28 @@
 
         <!-- Q&A -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="help-circle" class="w-6 h-6 text-cyan-600"></i> 考官常問 Q&amp;A</h3>
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="help-circle" class="w-6 h-6 text-cyan-600"></i> <span data-i18n="hazardPerception.faqHeading">考官常問 Q&amp;A</span></h3>
             <div class="space-y-3">
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm" open>
-                    <summary class="font-bold cursor-pointer flex items-center justify-between">Q：我應該講幾多個危險？<i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">冇固定數字。講出最重要、最近、最可能影響你嘅 2 至 3 個危險，比列出一大堆但冇行動嘅答案更好。</p>
+                    <summary class="font-bold cursor-pointer flex items-center justify-between"><span data-i18n="hazardPerception.faqHowMany">我要講幾多個危險？</span><i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+                    <p data-i18n="hazardPerception.faqHowManyAnswer" class="mt-3 text-sm text-slate-700 leading-relaxed">冇固定數字。講出最重要、最近、最可能影響你嘅 2 至 3 個危險，比列出一大堆但冇行動嘅答案更好。</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer flex items-center justify-between">Q：停在路邊嘅車要點樣講？<i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">「I see a parked car with brake lights on. It could open its door or pull out. So I will move to the left a little and slow down.」</p>
+                    <summary class="font-bold cursor-pointer flex items-center justify-between"><span data-i18n="hazardPerception.faqParked">停喺路邊嘅車要點講？</span><i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+                    <p data-i18n="hazardPerception.faqParkedAnswer" class="mt-3 text-sm text-slate-700 leading-relaxed">「我見到路邊有架車，煞車燈亮住。可能會突然開門，架車亦可能駛出。我會收慢，安全嘅話就留多啲距離。」</p>
                 </details>
                 <details class="bg-white rounded-xl border border-slate-200 p-5 shadow-sm">
-                    <summary class="font-bold cursor-pointer flex items-center justify-between">Q：我講咗之後要做咩？<i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
-                    <p class="mt-3 text-sm text-slate-700 leading-relaxed">要真正行動：減速、保持距離、扭頭或望鏡確認。考官會睇你之後嘅駕駛，唔係只聽你講。</p>
+                    <summary class="font-bold cursor-pointer flex items-center justify-between"><span data-i18n="hazardPerception.faqAfter">講完之後要做乜？</span><i data-lucide="chevron-down" class="w-4 h-4"></i></summary>
+                    <p data-i18n="hazardPerception.faqAfterAnswer" class="mt-3 text-sm text-slate-700 leading-relaxed">要真正行動：減速、保持距離、扭頭或望鏡確認。考官會睇你之後嘅駕駛，唔係只聽你講。</p>
                 </details>
             </div>
         </section>
     </main>
 
     <div id="site-footer"></div>
-    <script src="./i18n.js" defer></script>`r`n    <script src="./app.js" defer></script>
+    <script src="./translations.js" defer></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./app.js" defer></script>
 </body>
 </html>
 

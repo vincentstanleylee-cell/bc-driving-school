@@ -7,22 +7,25 @@
   'use strict';
 
   var NAV = [
-    { href: 'index.html', label: '首頁總覽' },
-    { href: 'cockpit.html', label: '座艙檢查' },
-    { href: 'driving-basics.html', label: '自動波技巧' },
-    { href: 'intersections.html', label: '路口路權' },
-    { href: 'maneuvers.html', label: '必考泊車' },
-    { href: 'speed-zones.html', label: '限速特區' },
-    { href: 'hazard-perception.html', label: '危險預判' },
-    { href: 'mock-test.html', label: '即死位與模擬評分' }
+    { href: 'index.html', message: 'shared.navHome' },
+    { href: 'cockpit.html', message: 'shared.navCockpit' },
+    { href: 'driving-basics.html', message: 'shared.navDriving' },
+    { href: 'intersections.html', message: 'shared.navIntersections' },
+    { href: 'maneuvers.html', message: 'shared.navManeuvers' },
+    { href: 'speed-zones.html', message: 'shared.navSpeed' },
+    { href: 'hazard-perception.html', message: 'shared.navHazard' },
+    { href: 'mock-test.html', message: 'shared.navMockTest' }
   ];
+  var i18n = window.BCDM_I18N;
+  var t = i18n.t;
 
   // Practice reference only. The official ICBC scoring sheet is the source of truth (see harness TASKS.md, VERIFY).
   var PRACTICE_PASS_LIMIT = 15;
 
   function currentPage() {
     var name = location.pathname.split('/').pop();
-    return name && name.slice(-5) === '.html' ? name : 'index.html';
+    if (!name) return 'index.html';
+    return name.endsWith('.html') ? name : name + '.html';
   }
 
   function store(key, value) {
@@ -56,10 +59,6 @@
       document.head.appendChild(st);
     }
 
-    var langDropdown = (window.BCDM_I18N && window.BCDM_I18N.createDropdownMarkup)
-      ? window.BCDM_I18N.createDropdownMarkup()
-      : '';
-
     var links = NAV.map(function (n) {
       var active = n.href === page;
       var cls = active
@@ -67,37 +66,34 @@
         : 'text-slate-600 hover:bg-slate-100 hover:text-slate-900';
       var aria = active ? ' aria-current="page"' : '';
       var rose = (n.href === 'mock-test.html' && !active) ? ' text-rose-600 font-semibold' : '';
-      return '<a href="./' + n.href + '" class="px-3 py-2 rounded-lg transition ' + cls + rose + '"' + aria + '>' + n.label + '</a>';
+      return '<a href="./' + n.href + '" data-i18n="' + n.message + '" class="px-2 py-2 rounded-lg whitespace-nowrap transition ' + cls + rose + '"' + aria + '></a>';
     });
 
     host.innerHTML =
       '<div class="bg-amber-500 text-slate-900 px-4 py-2 text-sm font-semibold shadow-sm">' +
         '<div class="container mx-auto flex items-center justify-between gap-2">' +
           '<span class="flex items-center gap-2"><i data-lucide="alert-triangle" class="w-4 h-4"></i>' +
-          '<span>ICBC 官方標準：卑詩省 Class 7 (N牌) 及 Class 5 全牌自動波路試專用課程</span></span>' +
-          '<span class="hidden sm:inline text-xs bg-amber-600/30 px-2 py-0.5 rounded font-mono">2026 版</span>' +
+          '<span data-i18n="shared.banner"></span></span>' +
+          '<span data-i18n="shared.edition" class="hidden sm:inline text-xs bg-amber-600/30 px-2 py-0.5 rounded font-mono"></span>' +
         '</div>' +
       '</div>' +
       '<header class="sticky top-0 z-50 bg-white/95 backdrop-blur-md border-b border-slate-200 shadow-sm">' +
-        '<div class="container mx-auto px-4 h-16 flex items-center justify-between gap-3">' +
-          '<a href="./index.html" class="flex items-center gap-3 min-w-0">' +
-            '<div class="bg-blue-600 text-white p-2 rounded-xl shadow-md shrink-0"><i data-lucide="car" class="w-6 h-6"></i></div>' +
-            '<div class="min-w-0"><h1 class="font-bold text-lg text-slate-900 leading-tight">BC Driving Master</h1>' +
-            '<p class="text-xs text-slate-500 truncate">ICBC 自動波路試通關全指南</p></div>' +
+        '<div class="container mx-auto px-3 sm:px-4 h-16 flex items-center justify-between gap-2 sm:gap-3">' +
+          '<a href="./index.html" class="flex items-center gap-2 sm:gap-3 min-w-0">' +
+            '<div class="bg-blue-600 text-white p-1.5 sm:p-2 rounded-xl shadow-md shrink-0"><i data-lucide="car" class="w-6 h-6"></i></div>' +
+            '<div class="min-w-0"><h1 class="font-bold text-base sm:text-lg text-slate-900 leading-tight">BC Driving Master</h1>' +
+            '<p data-i18n="shared.subtitle" class="text-xs text-slate-500 truncate"></p></div>' +
           '</a>' +
-          '<nav class="hidden lg:flex items-center gap-1 font-medium text-sm">' + links.join('') + '</nav>' +
-          '<div class="flex items-center gap-2">' +
-            langDropdown +
-            '<a href="./mock-test.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg text-sm font-semibold shadow transition hidden sm:flex items-center gap-2 shrink-0">' +
+          '<nav class="hidden xl:flex items-center gap-1 font-medium text-sm">' + links.join('') + '</nav>' +
+          '<div class="flex items-center gap-2 shrink-0">' +
+            i18n.createDropdownMarkup() +
+            '<a href="./mock-test.html" class="bg-blue-600 hover:bg-blue-700 text-white px-3.5 py-2 rounded-lg text-sm font-semibold shadow transition hidden sm:flex xl:hidden items-center gap-2 shrink-0">' +
               '<i data-lucide="clipboard-check" class="w-4 h-4"></i>' +
-              '<span>考官扣分清單</span>' +
+              '<span data-i18n="shared.demeritSheet"></span>' +
             '</a>' +
-            '<details class="lg:hidden relative">' +
-              '<summary class="list-none cursor-pointer bg-slate-100 hover:bg-slate-200 p-2 rounded-lg" aria-label="選單"><i data-lucide="menu" class="w-5 h-5"></i></summary>' +
+            '<details class="xl:hidden relative shrink-0">' +
+              '<summary class="list-none cursor-pointer bg-slate-100 hover:bg-slate-200 p-2 rounded-lg" data-i18n-aria-label="shared.menu"><i data-lucide="menu" class="w-5 h-5"></i></summary>' +
               '<div class="absolute right-0 mt-2 w-64 bg-white border border-slate-200 rounded-xl shadow-xl p-2 flex flex-col gap-1 text-sm z-50">' +
-                '<div class="pb-2 mb-1 border-b border-slate-100 px-2 flex items-center justify-between">' +
-                  '<span class="text-xs font-semibold text-slate-500">切換語言 / Language</span>' +
-                '</div>' +
                 links.join('') +
               '</div>' +
             '</details>' +
@@ -112,9 +108,8 @@
     host.innerHTML =
       '<footer class="bg-slate-900 text-slate-400 py-8 border-t border-slate-800 text-center text-sm mt-auto">' +
         '<div class="container mx-auto px-4">' +
-          '<p class="text-slate-300 font-semibold mb-2">BC Driving Master · 卑詩省 ICBC 自動波私家車路考自學手冊</p>' +
-          '<p class="text-xs text-slate-500 max-w-3xl mx-auto">本網站為自學參考，並非 ICBC 官方產品。考試標準以 ICBC 最新《Learn to Drive Smart》及路試評分表為準。' +
-          '圖片來自 Unsplash，僅作示意。</p>' +
+          '<p data-i18n="shared.footerTitle" class="text-slate-300 font-semibold mb-2"></p>' +
+          '<p data-i18n="shared.footerNote" class="text-xs text-slate-500 max-w-3xl mx-auto"></p>' +
         '</div>' +
       '</footer>';
   }
@@ -126,7 +121,7 @@
     if (!input) return;
     var cards = document.querySelectorAll('[data-searchable]');
     var empty = document.getElementById('search-empty');
-    input.addEventListener('input', function () {
+    function filter() {
       var q = input.value.trim().toLowerCase();
       var shown = 0;
       cards.forEach(function (card) {
@@ -136,7 +131,9 @@
         if (match) shown++;
       });
       if (empty) empty.classList.toggle('hidden', shown > 0);
-    });
+    }
+    input.addEventListener('input', filter);
+    window.addEventListener('bcdm:langchange', filter);
   }
 
   function initRoadmap() {
@@ -148,27 +145,34 @@
     var count = document.getElementById('roadmap-count');
     var total = boxes.length;
 
+    // Older saves used the default checkbox value and showed every milestone as checked.
+    if (done.includes('on')) {
+      done = Array.from(boxes, function (box) { return box.dataset.milestone; });
+    }
+
     function render(announce) {
       var n = 0;
       boxes.forEach(function (box) {
-        box.checked = done.indexOf(box.value) !== -1;
+        box.checked = done.includes(box.dataset.milestone);
         if (box.checked) n++;
         var row = box.closest('[data-milestone-row]');
         if (row) row.classList.toggle('bg-emerald-50', box.checked);
       });
       if (bar) bar.style.width = Math.round((n / total) * 100) + '%';
-      var suffix = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t('已完成') : '已完成';
-      if (count) count.textContent = n + ' / ' + total + ' ' + suffix;
+      if (count) count.textContent = t('home.roadmapCount', { done: n, total: total });
       if (announce && n === total) celebrate();
     }
 
     boxes.forEach(function (box) {
       box.addEventListener('change', function () {
-        done = Array.prototype.filter.call(boxes, function (b) { return b.checked; }).map(function (b) { return b.value; });
+        done = Array.from(boxes)
+          .filter(function (b) { return b.checked; })
+          .map(function (b) { return b.dataset.milestone; });
         store(key, done);
         render(true);
       });
     });
+    window.addEventListener('bcdm:langchange', function () { render(false); });
     render(false);
   }
 
@@ -190,8 +194,7 @@
       function render(announce) {
         var n = 0;
         boxes.forEach(function (box) { if (box.checked) n++; });
-        var prefix = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t('完成進度') : '完成進度';
-        if (count) count.textContent = prefix + ' ' + n + ' / ' + boxes.length;
+        if (count) count.textContent = n + ' / ' + boxes.length;
         if (bar) bar.style.width = Math.round((n / boxes.length) * 100) + '%';
         if (announce && n === boxes.length) celebrate();
       }
@@ -284,18 +287,22 @@
         ctx.fillRect(cx + side * (bodyW / 2 + 2) - 9, cy + bodyH / 2 - 52, 18, 44);
       });
 
-      var dir = wheel === 0 ? '正中（直行）' : (wheel < 0 ? '向左' : '向右');
-      var note = Math.abs(wheel) >= 360
-        ? '大幅打方向：只適用於泊車或掉頭，行車中必須回正。'
-        : (Math.abs(wheel) >= 90 ? '打方向較大：注意時速與後方盲點。' : '細微修正：保持平穩，雙手在方向盤上。');
+      var angle = Math.abs(wheel);
+      var direction = wheel === 0 ? 'steeringStraight' : (wheel < 0 ? 'steeringLeft' : 'steeringRight');
+      var note = angle >= 360 ? 'steeringLarge' : (angle >= 90 ? 'steeringMedium' : 'steeringFine');
       if (readout) {
-        readout.textContent = '方向盤 ' + Math.abs(wheel) + '° ' + dir + '　｜　前輪約 ' + Math.abs(Math.round(front * 10) / 10) + '°';
+        readout.textContent = t('maneuvers.steeringReadout', {
+          wheel: angle,
+          direction: t('maneuvers.' + direction),
+          front: Math.round(Math.abs(front) * 10) / 10
+        });
       }
       var hint = document.getElementById('steer-hint');
-      if (hint) hint.textContent = note;
+      if (hint) hint.textContent = t('maneuvers.' + note);
     }
 
     range.addEventListener('input', draw);
+    window.addEventListener('bcdm:langchange', draw);
     draw();
   }
 
@@ -344,16 +351,16 @@
       var overlap = Math.abs(ocy - (zone.y + zone.h / 2)) < (zone.h / 2 + 50);
       if (msg) {
         if (overlap && !looked) {
-          msg.textContent = '危險：右方來車在盲點內。未扭頭前，禁止切入。';
+          msg.textContent = t('drivingBasics.blindSpotDanger');
           msg.className = 'mt-3 font-semibold text-rose-600';
         } else if (overlap && looked) {
-          msg.textContent = '已扭頭確認：來車仍在盲點，請等待它通過後再切入。';
+          msg.textContent = t('drivingBasics.blindSpotWait');
           msg.className = 'mt-3 font-semibold text-amber-600';
         } else if (looked) {
-          msg.textContent = '安全：已扭頭確認盲點無車。打燈後平穩切入。';
+          msg.textContent = t('drivingBasics.blindSpotClear');
           msg.className = 'mt-3 font-semibold text-emerald-600';
         } else {
-          msg.textContent = '盲點暫無車，但考試規定仍須扭頭（Shoulder Check）才可切線。';
+          msg.textContent = t('drivingBasics.blindSpotCheck');
           msg.className = 'mt-3 font-semibold text-slate-600';
         }
       }
@@ -361,6 +368,7 @@
 
     range.addEventListener('input', draw);
     if (check) check.addEventListener('change', draw);
+    window.addEventListener('bcdm:langchange', draw);
     draw();
   }
 
@@ -374,13 +382,14 @@
     var ctx = canvas.getContext('2d');
 
     var steps = {
-      1: { cx: 330, cy: 175, a: 0,    text: '第 1 步：與目標車並排約 1 公尺，後視鏡對齊，入 R 檔，打右燈，360 度環視 + 右後扭頭。' },
-      2: { cx: 262, cy: 178, a: 0.7,  text: '第 2 步：倒後直行，車尾與目標車尾切齊後，方向盤迅速向右打一圈，倒至車身約 45 度。' },
-      3: { cx: 215, cy: 200, a: 0.15, text: '第 3 步：回正方向盤直倒，直到右側後視鏡見到前車左後尾燈。' },
-      4: { cx: 205, cy: 205, a: 0,    text: '第 4 步：方向盤迅速向左打到底，平穩入位，回正車身，離路緣約 30 厘米，入 P 檔拉手煞車。' }
+      1: { cx: 330, cy: 175, a: 0 },
+      2: { cx: 262, cy: 178, a: 0.7 },
+      3: { cx: 215, cy: 200, a: 0.15 },
+      4: { cx: 205, cy: 205, a: 0 }
     };
+    var step = 1;
 
-    function draw(n) {
+    function draw() {
       var W = canvas.width, H = canvas.height;
       ctx.clearRect(0, 0, W, H);
       ctx.fillStyle = '#f1f5f9';
@@ -394,19 +403,16 @@
       // target car (parked)
       drawCar(ctx, 170, 205, 0, 100, 48, '#64748b');
       // our car at this step
-      var s = steps[n];
+      var s = steps[step];
       drawCar(ctx, s.cx, s.cy, s.a, 90, 46, '#2563eb');
       // dashed reference line at curb-parallel guide
       ctx.strokeStyle = '#f43f5e';
       ctx.setLineDash([8, 6]);
       ctx.beginPath(); ctx.moveTo(0, 228); ctx.lineTo(W, 228); ctx.stroke();
       ctx.setLineDash([]);
-      if (caption) {
-        var txt = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t(s.text) : s.text;
-        caption.textContent = txt;
-      }
+      if (caption) caption.textContent = t('maneuvers.parkCaption' + step);
       buttons.forEach(function (b) {
-        var on = Number(b.getAttribute('data-park-step')) === n;
+        var on = Number(b.dataset.parkStep) === step;
         b.classList.toggle('bg-blue-600', on);
         b.classList.toggle('text-white', on);
         b.classList.toggle('bg-slate-100', !on);
@@ -416,36 +422,39 @@
 
     buttons.forEach(function (b) {
       b.addEventListener('click', function () {
-        draw(Number(b.getAttribute('data-park-step')));
+        step = Number(b.dataset.parkStep);
+        draw();
       });
     });
-    draw(1);
+    window.addEventListener('bcdm:langchange', draw);
+    draw();
   }
 
   /* ---------- Simulator: hill parking wheel direction ---------- */
 
   function initHill() {
     var radios = document.querySelectorAll('input[name="hill"]');
-    var out = document.getElementById('hill-out');
-    if (!radios.length || !out) return;
+    if (!radios.length) return;
+    var arrow = document.getElementById('hill-arrow');
+    var direction = document.getElementById('hill-direction');
+    var instructions = document.getElementById('hill-instructions');
 
     var rules = {
-      'up-curb':    { dir: '左', arrow: '←', text: '上坡有路緣：方向盤向左打到底（輪胎遠離路緣），車輛稍微溜後，讓後輪輕抵路緣作擋塊。' },
-      'up-nocurb':  { dir: '右', arrow: '→', text: '上坡無路緣：方向盤向右打到底，若溜車，車輪會溜向路邊。' },
-      'down':       { dir: '右', arrow: '→', text: '下坡（有或無路緣）：方向盤向右打到底，朝路邊方向。' }
+      'up-curb':   { left: true, message: 'maneuvers.hillUphillCurb' },
+      'up-nocurb': { left: false, message: 'maneuvers.hillUphillNoCurb' },
+      'down':      { left: false, message: 'maneuvers.hillDownhill' }
     };
 
     function render() {
       var checked = document.querySelector('input[name="hill"]:checked');
       var r = rules[checked ? checked.value : 'up-curb'];
-      out.innerHTML =
-        '<div class="text-6xl font-black text-purple-600 leading-none">' + r.arrow + '</div>' +
-        '<p class="mt-3 font-bold text-slate-900">方向盤打向：' + r.dir + ' 打到底</p>' +
-        '<p class="mt-2 text-sm text-slate-600">' + r.text + '</p>' +
-        '<p class="mt-3 text-xs text-rose-600 font-semibold">全部情況：入 P 檔，拉緊手煞車（Parking Brake）。</p>';
+      arrow.textContent = r.left ? '←' : '→';
+      direction.textContent = t(r.left ? 'maneuvers.hillLeft' : 'maneuvers.hillRight');
+      instructions.textContent = t(r.message);
     }
 
     radios.forEach(function (r) { r.addEventListener('change', render); });
+    window.addEventListener('bcdm:langchange', render);
     render();
   }
 
@@ -457,24 +466,32 @@
     var feedback = document.getElementById('hazard-feedback');
     if (!spots.length) return;
     var total = spots.length;
-    var found = {};
+    var found = new Set();
+    var lastHazard;
+
+    function render() {
+      if (score) score.textContent = found.size + ' / ' + total;
+      if (feedback) {
+        var message = found.size === total ? 'completeFeedback' : (lastHazard ? lastHazard + 'Note' : 'startFeedback');
+        feedback.textContent = t('hazardPerception.' + message);
+      }
+    }
 
     spots.forEach(function (spot) {
+      spot.setAttribute('aria-pressed', 'false');
       spot.addEventListener('click', function () {
-        var id = spot.getAttribute('data-hazard');
-        if (found[id]) return;
-        found[id] = true;
+        var id = spot.dataset.hazard;
+        if (found.has(id)) return;
+        found.add(id);
+        lastHazard = id;
         spot.classList.add('ring-4', 'ring-emerald-400', 'bg-emerald-400/30');
         spot.setAttribute('aria-pressed', 'true');
-        var n = Object.keys(found).length;
-        if (score) score.textContent = n + ' / ' + total;
-        if (feedback) feedback.textContent = spot.getAttribute('data-note') || '已標記';
-        if (n === total) {
-          if (feedback) feedback.textContent = '全部標記完成！記得口頭說出：「I see a …, it could …, so I will …」';
-          celebrate();
-        }
+        render();
+        if (found.size === total) celebrate();
       });
     });
+    window.addEventListener('bcdm:langchange', render);
+    render();
   }
 
   /* ---------- Mock test scorer ---------- */
@@ -502,7 +519,7 @@
       store(key, { fails: f, demerits: d });
     }
 
-    function evaluate() {
+    function evaluate(announce) {
       var failCount = 0;
       fails.forEach(function (f) { if (f.checked) failCount++; });
       var points = 0;
@@ -511,35 +528,29 @@
         points += pts * (Number(d.value) || 0);
       });
       var passed = failCount === 0 && points < PRACTICE_PASS_LIMIT;
-      var t = (window.BCDM_I18N && window.BCDM_I18N.t) ? window.BCDM_I18N.t : function (x) { return x; };
       if (result) {
-        result.textContent = failCount > 0 ? t('不及格（即時 Fail）') : (passed ? t('練習通過') : t('練習不及格（扣分過多）'));
+        var message = failCount > 0 ? 'resultAutoFail' : (passed ? 'resultPass' : 'resultDemerits');
+        result.textContent = t('mockTest.' + message);
         result.className = 'text-2xl font-black ' + (passed ? 'text-emerald-600' : 'text-rose-600');
       }
       if (detail) {
-        var lang = (window.BCDM_I18N && window.BCDM_I18N.getLang) ? window.BCDM_I18N.getLang() : 'yue';
-        if (lang === 'en') {
-          detail.textContent = 'Auto-Fails: ' + failCount + ' | Demerits Total: ' + points + ' pts (Pass limit: < ' + PRACTICE_PASS_LIMIT + ' pts, practice reference)';
-        } else if (lang === 'zh') {
-          detail.textContent = '致命扣分位 ' + failCount + ' 项 ｜ 扣分合计 ' + points + ' 分（练习参考上限 ' + PRACTICE_PASS_LIMIT + ' 分，非 ICBC 官方数字）';
-        } else {
-          detail.textContent = '即死位 ' + failCount + ' 項　｜　扣分合計 ' + points + ' 分（練習參考上限 ' + PRACTICE_PASS_LIMIT + ' 分，非 ICBC 官方數字）';
-        }
+        detail.textContent = t('mockTest.resultDetails', { fails: failCount, points: points, limit: PRACTICE_PASS_LIMIT });
       }
-      if (passed && failCount === 0 && points === 0) celebrate();
+      if (announce && passed && points === 0) celebrate();
     }
 
-    fails.forEach(function (f) { f.addEventListener('change', function () { save(); evaluate(); }); });
-    demerits.forEach(function (d) { d.addEventListener('input', function () { save(); evaluate(); }); });
+    fails.forEach(function (f) { f.addEventListener('change', function () { save(); evaluate(true); }); });
+    demerits.forEach(function (d) { d.addEventListener('input', function () { save(); evaluate(true); }); });
     if (reset) {
       reset.addEventListener('click', function () {
         fails.forEach(function (f) { f.checked = false; });
         demerits.forEach(function (d) { d.value = 0; });
         save();
-        evaluate();
+        evaluate(true);
       });
     }
-    evaluate();
+    window.addEventListener('bcdm:langchange', function () { evaluate(false); });
+    evaluate(true);
   }
 
   /* ---------- Boot ---------- */
@@ -547,9 +558,7 @@
   document.addEventListener('DOMContentLoaded', function () {
     renderHeader();
     renderFooter();
-    if (window.BCDM_I18N && window.BCDM_I18N.initSwitcher) {
-      window.BCDM_I18N.initSwitcher();
-    }
+    i18n.initSwitcher();
     initHubSearch();
     initRoadmap();
     initChecklists();

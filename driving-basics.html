@@ -1,9 +1,9 @@
 ﻿<!DOCTYPE html>
-<html lang="zh-HK">
+<html lang="yue-Hant-HK">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>自動波技巧與觀察系統 · BC Driving Master</title>
+    <title data-i18n="drivingBasics.title">自動波技巧與觀察系統 · BC Driving Master</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <script src="https://unpkg.com/lucide@latest"></script>
     <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.9.3/dist/confetti.browser.min.js"></script>
@@ -20,9 +20,9 @@
 
     <section class="gradient-hero text-white py-14 px-4">
         <div class="container mx-auto max-w-6xl">
-            <p class="text-emerald-300 font-semibold text-sm uppercase tracking-wider mb-2">Module 02 · 第二課</p>
-            <h2 class="text-3xl md:text-4xl font-black mb-4">自動波技巧與 See - Think - Do</h2>
-            <p class="text-slate-300 max-w-3xl leading-relaxed">路試評分重點不在你車開得幾快，而在你點樣控制車速、點樣觀察、點樣讓其他使用者知道你會做什麼。</p>
+            <p data-i18n="shared.module2" class="text-emerald-300 font-semibold text-sm uppercase tracking-wider mb-2">第二課</p>
+            <h2 data-i18n="drivingBasics.heading" class="text-3xl md:text-4xl font-black mb-4">自動波技巧與 See - Think - Do</h2>
+            <p data-i18n="drivingBasics.intro" class="text-slate-300 max-w-3xl leading-relaxed">路試評分重點不在你車開得幾快，而在你點樣控制車速、點樣觀察、點樣讓其他使用者知道你會做什麼。</p>
         </div>
     </section>
 
@@ -31,56 +31,56 @@
         <!-- Braking -->
         <section class="grid md:grid-cols-2 gap-8 items-start">
             <div>
-                <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="octagon" class="w-6 h-6 text-rose-600"></i> 腳跟點地法與漸進煞車</h3>
+                <h3 class="text-2xl font-bold text-slate-900 mb-4 flex items-center gap-2"><i data-lucide="octagon" class="w-6 h-6 text-rose-600"></i> <span data-i18n="drivingBasics.brakingHeading">腳跟點地法與漸進煞車</span></h3>
                 <ul class="space-y-4 text-slate-700">
-                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong>腳跟永遠留在地板上</strong>，腳跟對齊煞車踏板右緣，用腳掌前部去踩煞車或油門。腳跟做支點，可以減少誤踩油門。</li>
-                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong>漸進式煞車（Progressive Braking）</strong>：前半段柔和踩下，車速降低後微微放鬆，最後平穩停定。避免車頭急速點頭，乘客也會感覺舒服。</li>
-                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong>停車前一定要停定</strong>：停牌線前完全靜止，才可以再起步。停牌不完全停定（Rolling Stop）屬即時不及格。</li>
+                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong data-i18n="drivingBasics.heelPivot">腳跟永遠留在地板上</strong><span data-i18n="drivingBasics.heelPivotDetail">，腳跟對齊煞車踏板右緣，用腳掌前部去踩煞車或油門。腳跟做支點，可以減少誤踩油門。</span></li>
+                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong data-i18n="drivingBasics.progressiveBraking">漸進式煞車（Progressive Braking）</strong><span data-i18n="drivingBasics.progressiveBrakingDetail">：前半段柔和踩下，車速降低後微微放鬆，最後平穩停定。避免車頭急速點頭，乘客也會感覺舒服。</span></li>
+                    <li class="bg-white p-4 rounded-xl border border-slate-200"><strong data-i18n="drivingBasics.fullStop">停車前一定要停定</strong><span data-i18n="drivingBasics.fullStopDetail">：停牌線前完全靜止，才可以再起步。停牌不完全停定（Rolling Stop）屬即時不及格。</span></li>
                 </ul>
             </div>
             <figure class="rounded-2xl overflow-hidden border border-slate-200 shadow-sm bg-white">
-                <img src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900&q=80" alt="高速公路上一輛貨車在山谷中行駛，前方路面一直延伸" class="w-full h-72 object-cover" onerror="this.style.display='none'">
-                <figcaption class="p-4 text-sm text-slate-600">長路段要提早減速，避免急煞。</figcaption>
+                <img data-i18n-alt="drivingBasics.brakingPhoto" src="https://images.unsplash.com/photo-1502877338535-766e1452684a?w=900&q=80" alt="高速公路上一輛貨車在山谷中行駛，前方路面一直延伸" class="w-full h-72 object-cover" onerror="this.style.display='none'">
+                <figcaption data-i18n="drivingBasics.brakingCaption" class="p-4 text-sm text-slate-600">長路段要提早減速，避免急煞。</figcaption>
             </figure>
         </section>
 
         <!-- See Think Do -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="repeat" class="w-6 h-6 text-emerald-600"></i> 觀察循環：每 5 至 8 秒重複一次</h3>
-            <p class="text-slate-600 mb-6">See（看） → Think（想） → Do（做）。考官最想見到你不停掃視，而不是盯住前面一個點。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="repeat" class="w-6 h-6 text-emerald-600"></i> <span data-i18n="drivingBasics.observationHeading">觀察循環：每 5 至 8 秒重複一次</span></h3>
+            <p data-i18n="drivingBasics.observationIntro" class="text-slate-600 mb-6">See（看） → Think（想） → Do（做）。考官最想見到你不停掃視，而不是盯住前面一個點。</p>
             <ol class="grid md:grid-cols-4 gap-4 text-center">
-                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">1</div><p class="font-bold mt-2">看前方</p><p class="text-xs text-slate-500 mt-1">前車、行人、紅綠燈</p></li>
-                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">2</div><p class="font-bold mt-2">看中鏡</p><p class="text-xs text-slate-500 mt-1">後方來車速度</p></li>
-                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">3</div><p class="font-bold mt-2">掃描儀表</p><p class="text-xs text-slate-500 mt-1">時速、燈號</p></li>
-                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">4</div><p class="font-bold mt-2">看遠方</p><p class="text-xs text-slate-500 mt-1">約 12 秒前的路況</p></li>
+                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">1</div><p data-i18n="drivingBasics.lookAhead" class="font-bold mt-2">看前方</p><p data-i18n="drivingBasics.lookAheadDetail" class="text-xs text-slate-500 mt-1">前車、行人、紅綠燈</p></li>
+                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">2</div><p data-i18n="drivingBasics.lookMirror" class="font-bold mt-2">看中鏡</p><p data-i18n="drivingBasics.lookMirrorDetail" class="text-xs text-slate-500 mt-1">後方來車速度</p></li>
+                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">3</div><p data-i18n="drivingBasics.lookDashboard" class="font-bold mt-2">掃描儀表</p><p data-i18n="drivingBasics.lookDashboardDetail" class="text-xs text-slate-500 mt-1">時速、燈號</p></li>
+                <li class="bg-white rounded-2xl border border-slate-200 p-5"><div class="text-3xl font-black text-emerald-600">4</div><p data-i18n="drivingBasics.lookFar" class="font-bold mt-2">看遠方</p><p data-i18n="drivingBasics.lookFarDetail" class="text-xs text-slate-500 mt-1">約 12 秒前的路況</p></li>
             </ol>
         </section>
 
         <!-- Turning 5 steps -->
         <section class="bg-white rounded-3xl border border-slate-200 p-6 md:p-8 shadow-sm">
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="corner-up-right" class="w-6 h-6 text-indigo-600"></i> 轉彎 / 轉線的鐵律五步法</h3>
-            <p class="text-slate-600 mb-6">每次轉彎、轉線、切入或駛離路邊，都要按順序做完。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="corner-up-right" class="w-6 h-6 text-indigo-600"></i> <span data-i18n="drivingBasics.fiveSteps">轉彎 / 轉線的鐵律五步法</span></h3>
+            <p data-i18n="drivingBasics.fiveStepsIntro" class="text-slate-600 mb-6">每次轉彎、轉線、切入或駛離路邊，都要按順序做完。</p>
             <ol class="space-y-3">
-                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">1</span><div><strong>中鏡檢查（Mirror Check）</strong><p class="text-sm text-slate-600">睇中鏡，確認後方有冇車正在靠近。</p></div></li>
-                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">2</span><div><strong>打指揮燈（Signal）</strong><p class="text-sm text-slate-600">提早至少 30 公尺或 3 秒打燈，俾其他使用者預判你。</p></div></li>
-                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">3</span><div><strong>側鏡檢查（Side Mirror）</strong><p class="text-sm text-slate-600">睇打燈那一邊的側鏡。</p></div></li>
-                <li class="flex gap-4 items-start rounded-xl bg-rose-50 p-3 -mx-3"><span class="shrink-0 w-9 h-9 rounded-full bg-rose-600 text-white font-bold flex items-center justify-center">4</span><div><strong class="text-rose-700">扭頭望盲點（Shoulder Check）：最致命扣分位！</strong><p class="text-sm text-slate-700">將頭向後扭約 45 至 90 度，望向同一邊的後座三角窗，確認盲點範圍內冇車或行人。漏做即時不及格。</p></div></li>
-                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">5</span><div><strong>平穩完成操作（Manoeuvre）</strong><p class="text-sm text-slate-600">慢慢轉方向，轉完即時回正，唔好半途停住。</p></div></li>
+                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">1</span><div><strong data-i18n="drivingBasics.stepMirror">中鏡檢查（Mirror Check）</strong><p data-i18n="drivingBasics.stepMirrorDetail" class="text-sm text-slate-600">睇中鏡，確認後方有冇車正在靠近。</p></div></li>
+                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">2</span><div><strong data-i18n="drivingBasics.stepSignal">打指揮燈（Signal）</strong><p data-i18n="drivingBasics.stepSignalDetail" class="text-sm text-slate-600">提早至少 30 公尺或 3 秒打燈，俾其他使用者預判你。</p></div></li>
+                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">3</span><div><strong data-i18n="drivingBasics.stepSideMirror">側鏡檢查（Side Mirror）</strong><p data-i18n="drivingBasics.stepSideMirrorDetail" class="text-sm text-slate-600">睇打燈那一邊的側鏡。</p></div></li>
+                <li class="flex gap-4 items-start rounded-xl bg-rose-50 p-3 -mx-3"><span class="shrink-0 w-9 h-9 rounded-full bg-rose-600 text-white font-bold flex items-center justify-center">4</span><div><strong data-i18n="drivingBasics.stepShoulder" class="text-rose-700">扭頭望盲點（Shoulder Check）：最致命扣分位！</strong><p data-i18n="drivingBasics.stepShoulderDetail" class="text-sm text-slate-700">將頭向後扭約 45 至 90 度，望向同一邊的後座三角窗，確認盲點範圍內冇車或行人。漏做即時不及格。</p></div></li>
+                <li class="flex gap-4 items-start"><span class="shrink-0 w-9 h-9 rounded-full bg-indigo-600 text-white font-bold flex items-center justify-center">5</span><div><strong data-i18n="drivingBasics.stepManoeuvre">平穩完成操作（Manoeuvre）</strong><p data-i18n="drivingBasics.stepManoeuvreDetail" class="text-sm text-slate-600">慢慢轉方向，轉完即時回正，唔好半途停住。</p></div></li>
             </ol>
         </section>
 
         <!-- Blind spot simulator -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="scan" class="w-6 h-6 text-rose-600"></i> 互動：盲點偵測模擬</h3>
-            <p class="text-slate-600 mb-6">拖動橙色來車，觀察紅色盲點區。然後勾選「已扭頭確認」，睇看結果有咩分別。</p>
+            <h3 class="text-2xl font-bold text-slate-900 mb-2 flex items-center gap-2"><i data-lucide="scan" class="w-6 h-6 text-rose-600"></i> <span data-i18n="drivingBasics.blindSpotHeading">互動：盲點偵測模擬</span></h3>
+            <p data-i18n="drivingBasics.blindSpotIntro" class="text-slate-600 mb-6">拖動橙色來車，觀察紅色盲點區。然後勾選「已扭頭確認」，睇看結果有咩分別。</p>
             <div class="grid md:grid-cols-5 gap-6 items-start">
                 <div class="md:col-span-3 bg-white rounded-2xl border border-slate-200 p-4 shadow-sm">
-                    <canvas id="bs-canvas" width="360" height="420" class="w-full max-w-sm mx-auto rounded-xl bg-slate-700" aria-label="盲點模擬圖"></canvas>
+                    <canvas data-i18n-aria-label="drivingBasics.blindSpotImage" id="bs-canvas" width="360" height="420" class="w-full max-w-sm mx-auto rounded-xl bg-slate-700" aria-label="盲點模擬圖"></canvas>
                 </div>
                 <div class="md:col-span-2 bg-white rounded-2xl border border-slate-200 p-6 shadow-sm">
-                    <label class="block font-semibold mb-2">右方來車位置</label>
+                    <label data-i18n="drivingBasics.blindSpotCar" class="block font-semibold mb-2">右方來車位置</label>
                     <input id="bs-range" type="range" min="40" max="380" value="200" class="w-full accent-amber-500">
-                    <label class="flex items-center gap-3 mt-6 font-semibold"><input id="bs-check" type="checkbox" class="w-5 h-5 accent-emerald-600"> 已扭頭確認（Shoulder Check）</label>
+                    <label class="flex items-center gap-3 mt-6 font-semibold"><input id="bs-check" type="checkbox" class="w-5 h-5 accent-emerald-600"> <span data-i18n="drivingBasics.blindSpotDone">已扭頭確認（Shoulder Check）</span></label>
                     <p id="bs-msg" class="mt-4 font-semibold text-slate-600">盲點暫無車，但考試規定仍須扭頭才可切線。</p>
                 </div>
             </div>
@@ -88,32 +88,34 @@
 
         <!-- Following distance -->
         <section>
-            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="ruler" class="w-6 h-6 text-blue-600"></i> 跟車距離</h3>
+            <h3 class="text-2xl font-bold text-slate-900 mb-6 flex items-center gap-2"><i data-lucide="ruler" class="w-6 h-6 text-blue-600"></i> <span data-i18n="drivingBasics.followingHeading">跟車距離</span></h3>
             <div class="grid md:grid-cols-3 gap-6">
-                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div class="text-3xl font-black text-blue-600">2 秒</div><p class="font-bold mt-2">正常乾燥路面</p><p class="text-sm text-slate-600 mt-2">前車經過某一固定物件後，自己也要過同一物件至少 2 秒。</p></div>
-                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div class="text-3xl font-black text-blue-600">3 至 4 秒</div><p class="font-bold mt-2">雨、雪、夜間或高速公路</p><p class="text-sm text-slate-600 mt-2">路面摩擦力下降，需要更長煞車距離。</p></div>
-                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div class="text-lg font-black text-rose-600">停在路口前車後</div><p class="font-bold mt-2">看得見前車後輪著地</p><p class="text-sm text-slate-600 mt-2">停下時要能看到前車後輪完全著地，加上一段路面（Tires Touching Tarmac）。太貼近前車，會令你無空間應付意外。</p></div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div data-i18n="drivingBasics.followingDryTime" class="text-3xl font-black text-blue-600">2 秒</div><p data-i18n="drivingBasics.followingDry" class="font-bold mt-2">正常乾燥路面</p><p data-i18n="drivingBasics.followingDryDetail" class="text-sm text-slate-600 mt-2">前車經過某一固定物件後，自己也要過同一物件至少 2 秒。</p></div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div data-i18n="drivingBasics.followingWetTime" class="text-3xl font-black text-blue-600">3 至 4 秒</div><p data-i18n="drivingBasics.followingWet" class="font-bold mt-2">雨、雪、夜間或高速公路</p><p data-i18n="drivingBasics.followingWetDetail" class="text-sm text-slate-600 mt-2">路面摩擦力下降，需要更長煞車距離。</p></div>
+                <div class="bg-white rounded-2xl border border-slate-200 p-6"><div data-i18n="drivingBasics.followingStopped" class="text-lg font-black text-rose-600">停在路口前車後</div><p data-i18n="drivingBasics.followingStoppedCue" class="font-bold mt-2">看得見前車後輪著地</p><p data-i18n="drivingBasics.followingStoppedDetail" class="text-sm text-slate-600 mt-2">停下時要能看到前車後輪完全著地，加上一段路面（Tires Touching Tarmac）。太貼近前車，會令你無空間應付意外。</p></div>
             </div>
         </section>
 
         <!-- Checklist -->
         <section class="bg-emerald-50 border border-emerald-200 rounded-2xl p-6" data-checklist="driving-basics">
             <div class="flex items-center justify-between mb-4">
-                <h3 class="text-xl font-bold text-emerald-900">本課練習自檢</h3>
-                <span class="text-sm font-semibold text-emerald-700">進度 <span data-checklist-count>0 / 0</span></span>
+                <h3 data-i18n="drivingBasics.practiceHeading" class="text-xl font-bold text-emerald-900">本課練習自檢</h3>
+                <span class="text-sm font-semibold text-emerald-700"><span data-i18n="shared.progress">進度</span> <span data-checklist-count>0 / 0</span></span>
             </div>
             <div class="h-2 bg-white rounded-full overflow-hidden mb-4"><div data-checklist-bar class="h-full bg-emerald-600 transition-all" style="width:0%"></div></div>
             <div class="grid md:grid-cols-2 gap-2 text-sm">
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> 我能用腳跟做支點，在煞車與油門之間切換</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> 我能在 5 至 8 秒內完成一次觀察循環</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> 轉線前一定做完五步法，包括扭頭</label>
-                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> 雨天或夜間會將跟車距離拉至 3 至 4 秒</label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> <span data-i18n="drivingBasics.practiceHeel">我能用腳跟做支點，在煞車與油門之間切換</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> <span data-i18n="drivingBasics.practiceScan">我能在 5 至 8 秒內完成一次觀察循環</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> <span data-i18n="drivingBasics.practiceLane">轉線前一定做完五步法，包括扭頭</span></label>
+                <label class="flex items-center gap-3"><input type="checkbox" class="w-5 h-5 accent-emerald-600"> <span data-i18n="drivingBasics.practiceFollowing">雨天或夜間會將跟車距離拉至 3 至 4 秒</span></label>
             </div>
         </section>
     </main>
 
     <div id="site-footer"></div>
-    <script src="./i18n.js" defer></script>`r`n    <script src="./app.js" defer></script>
+    <script src="./translations.js" defer></script>
+    <script src="./i18n.js" defer></script>
+    <script src="./app.js" defer></script>
 </body>
 </html>
 
